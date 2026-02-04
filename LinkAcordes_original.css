@@ -1,0 +1,27 @@
+/*A {
+    color:red;
+    font-weight:bold;
+    cursor: help;
+    display: visible; /* Hidden by default
+    position: fixed; /* Position relative to the viewport
+    pointer-events: all; /* Allows mouse events to pass through the image to the element beneath
+    z-index: 1000; /* Ensure the image is on top of other content
+    /* Optional: Add an offset so the cursor is not exactly in the corner of the image
+    transform: translate(10px, 10px);
+} 
+*/
+
+#chord-preview {
+    position: absolute;
+    display: none;
+    pointer-events: none;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  
+  #chord-preview img {
+    width: 120px;
+    height: auto;
+  }

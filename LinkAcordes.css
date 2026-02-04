@@ -1,0 +1,110 @@
+.lyrics {
+  font-family: 'Courier New';
+  color: black;
+}
+
+.chord-item {
+  font-family: 'Courier New';
+  font-weight: bold;
+  color: red;
+}
+
+.chord-space {
+  white-space: pre;
+}
+
+#chord-preview {
+  position: absolute;
+  display: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 15px 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+/* Image wrapper becomes the reference */
+.image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#chord-image {
+  display: block;
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev { margin: 1px; font-size: 15px; }
+.next { font-size: 15px; }
+
+#chord-preview .dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  min-height: 10px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: #ccc;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.dot.active {
+  background: #333;
+}
+
+.close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border: none;
+  background: none;
+  font-size: 18px;
+}
+
+/* ===============================
+   MOBILE ADJUSTMENTS
+================================ */
+
+@media (max-width: 768px) {
+  #chord-preview {
+    max-width: 90%;
+  }
+
+  #chord-preview img {
+    width: 100%;
+  }
+
+  #chord-preview .prev {
+    left: -12px;
+  }
+
+  #chord-preview .next {
+    right: -12px;
+  }
+}

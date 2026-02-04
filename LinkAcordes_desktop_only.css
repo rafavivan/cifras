@@ -1,0 +1,72 @@
+.lyrics {
+  font-family: 'Courier New';
+  color: black;
+}
+
+.chord-item {
+  font-family: 'Courier New';
+  font-weight: bold;
+  color: red;
+}
+
+.chord-space {
+  white-space: pre;
+}
+
+#chord-preview {
+  position: absolute;
+  display: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 15px 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+  
+/* Image wrapper becomes the reference */
+.image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#chord-preview img {
+  width: 100px;
+  display: block;
+}
+  
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+  
+.prev { margin: 1px; font-size: 20px; }
+.next { font-size: 20px; }
+  
+/* Dots container */
+#dots {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;
+  margin-top: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 3px;
+}
+
+.dot.active {
+  background: #333;
+}
+  
