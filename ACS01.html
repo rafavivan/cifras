@@ -1,143 +1,84 @@
 <HTML>
+<meta charset="UTF-8">
 <HEAD>
 <TITLE>Arlindo Cruz e Sombrinha � AINDA � TEMPO DE SER FELIZ (AO VIVO)</TITLE>
-
-<LINK REL=STYLESHEET HREF="LinkAcordes.css" TYPE="text/css">
-<SCRIPT LANGUAGE="JavaScript" SRC="MoveAcordes.js"></SCRIPT>
-<SCRIPT LANGUAGE="JavaScript" SRC="MudaAcordes.js"></SCRIPT>
-
-<SCRIPT> preloadimages("Braco.gif","C (1).gif","Bm (1).gif","Am (1).gif","D7 (1).gif",
-	 "E7 (1).gif","Cm (1).gif","Bm5-7 (1).gif","D (1).gif","G7 (1).gif","Dm (1).gif")
-</SCRIPT>
-
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="LinkAcordes.css">
 </HEAD>
 
-<BODY OnLoad="setVariables(); checkLocation()">
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+
+<BODY>
 
 <B><FONT SIZE=4><P ALIGN="CENTER">Arlindo Cruz & Sombrinha - <I>Ainda &Eacute; Tempo De Ser Feliz (Ao Vivo)</P></I></B></FONT>
 
-<DIV ID="object1" STYLE="position:absolute; visibility:hidden; left:500px; top:0px; z-index:5">
-<TABLE CELLSPACING=10>
-<TD><IMG SRC="Braco.gif" id="targetimage" BORDER=0></TD>
-</TABLE></DIV>
-
 <TABLE WIDTH="100%">
-<TD COLSPAN=27></TD>
+<TD COLSPAN=32></TD>
 
 <TD>
-<B>Tom...........:</B> <A onMouseover="MudaImg(myimages[1])"
- onMouseout="hideImg()">C</A><BR>
-<B>Introdu&ccedil;&atilde;o:</B> <A onMouseover="MudaImg(myimages[1])"
- onMouseout="hideImg()">C</A> &nbsp; <A onMouseover="MudaImg(myimages[2])"
- onMouseout="hideImg()">Bm </A> &nbsp; <A onMouseover="MudaImg(myimages[3])"
- onMouseout="hideImg()">Am </A> &nbsp; <A onMouseover="MudaImg(myimages[4])"
- onMouseout="hideImg()">D7 </A> &nbsp; <A onMouseover="MudaImg(myimages[3])"
- onMouseout="hideImg()">Am </A> &nbsp; <A onMouseover="MudaImg(myimages[5])"
- onMouseout="hideImg()">E7 </A> &nbsp; <A onMouseover="MudaImg(myimages[1])"
- onMouseout="hideImg()">C</A><BR>
+<B>Tom...........:</B> <span class="chord">C</span><BR>
+<B>Introdu&ccedil;&atilde;o:</B> <span class="chord">C  Bm  Am  D7  Am  E7  C</span>
 
-<PRE>
-<B><SPAN CLASS="A" onMouseover="MudaImg(myimages[1])" 
- onMouseout="hideImg()">C </SPAN>                   <SPAN CLASS="A" onMouseover="MudaImg(myimages[6])" 
- onMouseout="hideImg()">Cm </SPAN>         <SPAN CLASS="A" onMouseover="MudaImg(myimages[2])" 
- onMouseout="hideImg()">Bm </SPAN>  <SPAN CLASS="A" onMouseover="MudaImg(myimages[7])" 
- onMouseout="hideImg()">Bm5-/7 </SPAN> <SPAN CLASS="A" onMouseover="MudaImg(myimages[5])" 
- onMouseout="hideImg()">E7 </SPAN>
+<PRE><SPAN CLASS="lyrics">
+<B><span class="chord">C </SPAN>                   <span class="chord">Cm </SPAN>         <span class="chord">Bm </SPAN>  <span class="chord">Bm5-/7 </SPAN> <span class="chord">E7 </SPAN>
 </B>  Me cansei de ficar mudo sem tentar,        sem falar
-<B><SPAN CLASS="A" onMouseover="MudaImg(myimages[1])" 
- onMouseout="hideImg()">C </SPAN>                     <SPAN CLASS="A" onMouseover="MudaImg(myimages[6])" 
- onMouseout="hideImg()">Cm </SPAN>         <SPAN CLASS="A" onMouseover="MudaImg(myimages[2])" 
- onMouseout="hideImg()">Bm </SPAN>          <SPAN CLASS="A" onMouseover="MudaImg(myimages[5])" 
- onMouseout="hideImg()">E7 </SPAN>
+<B><span class="chord">C </SPAN>                     <span class="chord">Cm </SPAN>         <span class="chord">Bm </SPAN>          <span class="chord">E7 </SPAN>
 </B>  Mas n&atilde;o posso deixar tudo como est&aacute;... como est&aacute; voc&ecirc;?
 
-<B>            <SPAN CLASS="A" onMouseover="MudaImg(myimages[1])" 
- onMouseout="hideImg()">C </SPAN>                    <SPAN CLASS="A" onMouseover="MudaImg(myimages[8])" 
- onMouseout="hideImg()">D </SPAN>
+<B>            <span class="chord">C </SPAN>                    <span class="chord">D </SPAN>
 </B>T&ocirc; vivendo por viver, t&ocirc; cansado de chorar
-<B>               <SPAN CLASS="A" onMouseover="MudaImg(myimages[7])" 
- onMouseout="hideImg()">Bm5-/7 </SPAN>                 <SPAN CLASS="A" onMouseover="MudaImg(myimages[5])" 
- onMouseout="hideImg()">E7 </SPAN>
+<B>               <span class="chord">Bm5-/7 </SPAN>                 <span class="chord">E7 </SPAN>
 </B>N&atilde;o sei mais o que fazer, voc&ecirc; tem que me ajudar
-<B>           <SPAN CLASS="A" onMouseover="MudaImg(myimages[3])" 
- onMouseout="hideImg()">Am </SPAN>       <SPAN CLASS="A" onMouseover="MudaImg(myimages[2])" 
- onMouseout="hideImg()">Bm </SPAN>           <SPAN CLASS="A" onMouseover="MudaImg(myimages[3])" 
- onMouseout="hideImg()">Am </SPAN>     <SPAN CLASS="A" onMouseover="MudaImg(myimages[4])" 
- onMouseout="hideImg()">D7 </SPAN>    <SPAN CLASS="A" onMouseover="MudaImg(myimages[9])" 
- onMouseout="hideImg()">G7 </SPAN>
+<B>           <span class="chord">Am </SPAN>       <span class="chord">Bm </SPAN>           <span class="chord">Am </SPAN>     <span class="chord">D7 </SPAN>    <span class="chord">G7 </SPAN>
 </B>T&aacute; dif&iacute;cil esquecer,    imposs&iacute;vel n&atilde;o lembrar voc&ecirc;&ecirc;&ecirc;
-<B>    <SPAN CLASS="A" onMouseover="MudaImg(myimages[10])" 
- onMouseout="hideImg()">Dm </SPAN>           <SPAN CLASS="A" onMouseover="MudaImg(myimages[9])" 
- onMouseout="hideImg()">G7 </SPAN>
+<B>    <span class="chord">Dm </SPAN>           <span class="chord">G7 </SPAN>
 </B>E voc&ecirc; como est&aacute;?
 
-<B>              <SPAN CLASS="A" onMouseover="MudaImg(myimages[1])" 
- onMouseout="hideImg()">C </SPAN>                       <SPAN CLASS="A" onMouseover="MudaImg(myimages[8])" 
- onMouseout="hideImg()">D </SPAN>
+<B>              <span class="chord">C </SPAN>                       <span class="chord">D </SPAN>
 </B>Com o fim do nosso amor, eu tamb&eacute;m t&ocirc; por a&iacute;
-<B>                    <SPAN CLASS="A" onMouseover="MudaImg(myimages[7])" 
- onMouseout="hideImg()">Bm5-/7 </SPAN>            <SPAN CLASS="A" onMouseover="MudaImg(myimages[5])" 
- onMouseout="hideImg()">E7 </SPAN>
+<B>                    <span class="chord">Bm5-/7 </SPAN>            <span class="chord">E7 </SPAN>
 </B>J&aacute; n&atilde;o sei pra onde vou, tantas noites sem dormir
-<B>       <SPAN CLASS="A" onMouseover="MudaImg(myimages[3])" 
- onMouseout="hideImg()">Am </SPAN>        <SPAN CLASS="A" onMouseover="MudaImg(myimages[2])" 
- onMouseout="hideImg()">Bm </SPAN>       <SPAN CLASS="A" onMouseover="MudaImg(myimages[3])" 
- onMouseout="hideImg()">Am </SPAN>    <SPAN CLASS="A" onMouseover="MudaImg(myimages[4])" 
- onMouseout="hideImg()">D7 </SPAN>   <SPAN CLASS="A" onMouseover="MudaImg(myimages[10])" 
- onMouseout="hideImg()">Dm </SPAN> <SPAN CLASS="A" onMouseover="MudaImg(myimages[9])" 
- onMouseout="hideImg()">G7 </SPAN>
+<B>       <span class="chord">Am </SPAN>        <span class="chord">Bm </SPAN>       <span class="chord">Am </SPAN>    <span class="chord">D7 </SPAN>   <span class="chord">Dm </SPAN> <span class="chord">G7 </SPAN>
 </B>Alivia minha dor,    e fa&ccedil;a por favor sorrir
 
-<B>               <SPAN CLASS="A" onMouseover="MudaImg(myimages[1])" 
- onMouseout="hideImg()">C </SPAN>          <SPAN CLASS="A" onMouseover="MudaImg(myimages[4])" 
- onMouseout="hideImg()">D7 </SPAN>          <SPAN CLASS="A" onMouseover="MudaImg(myimages[2])" 
- onMouseout="hideImg()">Bm </SPAN> <SPAN CLASS="A" onMouseover="MudaImg(myimages[9])" 
- onMouseout="hideImg()">G7 </SPAN>
+<B>               <span class="chord">C </SPAN>          <span class="chord">D7 </SPAN>          <span class="chord">Bm </SPAN> <span class="chord">G7 </SPAN>
 </B>Vem pros meus bra&ccedil;os meu amor, meu acalanto 
-<B>            <SPAN CLASS="A" onMouseover="MudaImg(myimages[1])" 
- onMouseout="hideImg()">C </SPAN>            <SPAN CLASS="A" onMouseover="MudaImg(myimages[6])" 
- onMouseout="hideImg()">Cm </SPAN>          <SPAN CLASS="A" onMouseover="MudaImg(myimages[2])" 
- onMouseout="hideImg()">Bm </SPAN> <SPAN CLASS="A" onMouseover="MudaImg(myimages[9])" 
- onMouseout="hideImg()">G7 </SPAN>
+<B>            <span class="chord">C </SPAN>            <span class="chord">Cm </SPAN>          <span class="chord">Bm </SPAN> <span class="chord">G7 </SPAN>
 </B>Leva esse pranto pra bem longe de n&oacute;s dois
-<B>           <SPAN CLASS="A" onMouseover="MudaImg(myimages[1])" 
- onMouseout="hideImg()">C </SPAN>         <SPAN CLASS="A" onMouseover="MudaImg(myimages[4])" 
- onMouseout="hideImg()">D7 </SPAN>         <SPAN CLASS="A" onMouseover="MudaImg(myimages[7])" 
- onMouseout="hideImg()">Bm5-/7 </SPAN>      <SPAN CLASS="A" onMouseover="MudaImg(myimages[5])" 
- onMouseout="hideImg()">E7 </SPAN>
+<B>           <span class="chord">C </SPAN>         <span class="chord">D7 </SPAN>         <span class="chord">Bm5-/7 </SPAN>      <span class="chord">E7 </SPAN>
 </B>N&atilde;o deixe nada pra depois, &eacute; a saudade que me diz
-<B>          <SPAN CLASS="A" onMouseover="MudaImg(myimages[3])" 
- onMouseout="hideImg()">Am </SPAN>            <SPAN CLASS="A" onMouseover="MudaImg(myimages[4])" 
- onMouseout="hideImg()">D7 </SPAN>   <SPAN CLASS="A" onMouseover="MudaImg(myimages[10])" 
- onMouseout="hideImg()">Dm </SPAN> <SPAN CLASS="A" onMouseover="MudaImg(myimages[9])" 
- onMouseout="hideImg()">G7 </SPAN>
+<B>          <span class="chord">Am </SPAN>            <span class="chord">D7 </SPAN>   <span class="chord">Dm </SPAN> <span class="chord">G7 </SPAN>
 </B>Que ainda &eacute; tempo pra viver feliz
 
-<B>               <SPAN CLASS="A" onMouseover="MudaImg(myimages[1])" 
- onMouseout="hideImg()">C </SPAN>          <SPAN CLASS="A" onMouseover="MudaImg(myimages[4])" 
- onMouseout="hideImg()">D7 </SPAN>          <SPAN CLASS="A" onMouseover="MudaImg(myimages[2])" 
- onMouseout="hideImg()">Bm </SPAN> <SPAN CLASS="A" onMouseover="MudaImg(myimages[9])" 
- onMouseout="hideImg()">G7 </SPAN>
+<B>               <span class="chord">C </SPAN>          <span class="chord">D7 </SPAN>          <span class="chord">Bm </SPAN> <span class="chord">G7 </SPAN>
 </B>Vem pros meus bra&ccedil;os meu amor, meu acalanto 
-<B>            <SPAN CLASS="A" onMouseover="MudaImg(myimages[1])" 
- onMouseout="hideImg()">C </SPAN>            <SPAN CLASS="A" onMouseover="MudaImg(myimages[6])" 
- onMouseout="hideImg()">Cm </SPAN>          <SPAN CLASS="A" onMouseover="MudaImg(myimages[2])" 
- onMouseout="hideImg()">Bm </SPAN> <SPAN CLASS="A" onMouseover="MudaImg(myimages[9])" 
- onMouseout="hideImg()">G7 </SPAN>
+<B>            <span class="chord">C </SPAN>            <span class="chord">Cm </SPAN>          <span class="chord">Bm </SPAN> <span class="chord">G7 </SPAN>
 </B>Leva esse pranto pra bem longe de n&oacute;s dois
-<B>           <SPAN CLASS="A" onMouseover="MudaImg(myimages[1])" 
- onMouseout="hideImg()">C </SPAN>         <SPAN CLASS="A" onMouseover="MudaImg(myimages[4])" 
- onMouseout="hideImg()">D7 </SPAN>         <SPAN CLASS="A" onMouseover="MudaImg(myimages[7])" 
- onMouseout="hideImg()">Bm5-/7 </SPAN>      <SPAN CLASS="A" onMouseover="MudaImg(myimages[5])" 
- onMouseout="hideImg()">E7 </SPAN>
+<B>           <span class="chord">C </SPAN>         <span class="chord">D7 </SPAN>         <span class="chord">Bm5-/7 </SPAN>      <span class="chord">E7 </SPAN>
 </B>N&atilde;o deixe nada pra depois, &eacute; a saudade que me diz
-<B>          <SPAN CLASS="A" onMouseover="MudaImg(myimages[3])" 
- onMouseout="hideImg()">Am </SPAN>            <SPAN CLASS="A" onMouseover="MudaImg(myimages[4])" 
- onMouseout="hideImg()">D7 </SPAN>   <SPAN CLASS="A" onMouseover="MudaImg(myimages[10])" 
- onMouseout="hideImg()">Dm </SPAN>  <SPAN CLASS="A" onMouseover="MudaImg(myimages[9])" 
- onMouseout="hideImg()">G7 </SPAN>
-</B>Que ainda &eacute; tempo pra viver feliz</PRE></TD></TABLE>
+<B>          <span class="chord">Am </SPAN>            <span class="chord">D7 </SPAN>   <span class="chord">Dm </SPAN>  <span class="chord">G7 </SPAN>
+</B>Que ainda &eacute; tempo pra viver feliz
 
-<CENTER><FONT SIZE="4" FACE="TimesRoman"><A HREF="/cifras/indice.htm">Voltar ao Índice</A> &nbsp;&nbsp;|&nbsp;&nbsp;
-					 <A HREF="/index.htm">Página Principal</FONT>
+</PRE></TD></TABLE>
+
+<CENTER><FONT SIZE="4" FACE="TimesRoman"><A HREF="Indice.html">Voltar ao Índice</A></FONT>
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="prev" type="button"><</button>
+    <img id="chord-image" alt="Chord diagram" />
+    <button class="next" type="button">></button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="Acordes.js"></script>
+<script src="AcordeScript.js"></script>
+
 </BODY>
+</html>

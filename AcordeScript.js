@@ -191,7 +191,8 @@ document.addEventListener("click", e => {
 
 /* Close on tap outside (mobile) */
 document.addEventListener("click", e => {
-  e.preventDefault();
+  if (e.target.closest(".chord")) {;
+    e.preventDefault(); }
   if (!isTouch) return;
   if (e.target.closest(".chord-item")) return;
   if (e.target.closest(`#${PREVIEW_ID}`)) return;
