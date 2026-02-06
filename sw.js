@@ -1,13 +1,13 @@
 const CACHE_NAME = "cifras-pwa-v1";
 
-const ASSETS = [
-  "/",
-  "/Indice.html",
-  "/AcordeScript.js",
-  "/Acordes.js",
-  "/manifest.json"
+const CORE_ASSETS = [
+  "/cifras/",
+  "/cifras/Indice.html",
+  "/cifras/manifest.json",
+  "/cifras/AcordeScript.js",
+  "/cifras/Acordes.js",
+  "/cifras/Musicas/"
 ];
-
 // Install
 self.addEventListener("install", event => {
   event.waitUntil(

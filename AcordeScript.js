@@ -2,7 +2,7 @@
    CONFIG
 ================================ */
 
-const CHORD_PATH = "./Acordes/";
+const CHORD_PATH = "../Acordes/";
 const chordIndex = window.chordIndex;
 const PREVIEW_ID = "chord-preview";
 
