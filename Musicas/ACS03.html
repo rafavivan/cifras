@@ -4,13 +4,15 @@
   <title>Arlindo Cruz e Sombrinha - UM DIA (AO VIVO)</title>
   <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../LinkAcordes.css">
+
+  		<script>
+			if ("serviceWorker" in navigator) {
+				navigator.serviceWorker.register("/cifras/sw.js");
+			}
+		</script>
+
 </HEAD>
 
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("../sw.js");
-}
-</script>
 
 <BODY>
   

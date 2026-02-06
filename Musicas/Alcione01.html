@@ -7,9 +7,11 @@
 <SCRIPT LANGUAGE="JavaScript" SRC="MoveAcordes.js"></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript" SRC="MudaAcordes.js"></SCRIPT>
 
-<SCRIPT> preloadimages("Braco.gif","Em (1).gif","Am (1).gif","B7 (1).gif","D7 (1).gif",
-	 "G (1).gif")
-</SCRIPT>
+  		<script>
+			if ("serviceWorker" in navigator) {
+				navigator.serviceWorker.register("/cifras/sw.js");
+			}
+		</script>
 
 </HEAD>
 
