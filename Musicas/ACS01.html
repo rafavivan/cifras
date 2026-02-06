@@ -79,6 +79,17 @@ if ("serviceWorker" in navigator) {
 
 <script src="../Acordes.js"></script>
 <script src="../AcordeScript.js"></script>
+<script>
+  window.addEventListener("load", () => {
+    if (!("caches" in window)) return;
+    if (!window.chordIndex) return;
+    caches.open("cifras-pwa-v1").then(cache => {
+      Object.values(window.chordIndex || {}).flat().forEach(img => {
+        cache.add(`/cifras/${img}`).catch(() => {});
+      });
+    });
+  });
+</script>
 
 </BODY>
 </html>

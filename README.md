@@ -1,1 +1,1 @@
-[Link Anchor Text](Indice.html)
+[Link Anchor Text](index.html)
