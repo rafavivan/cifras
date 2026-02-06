@@ -2,7 +2,7 @@ const CACHE_NAME = "cifras-pwa-v1";
 
 const CORE_ASSETS = [
   "/cifras/",
-  "/cifras/Indice.html",
+  "/cifras/index.html",
   "/cifras/manifest.json",
   "/cifras/AcordeScript.js",
   "/cifras/Acordes.js",

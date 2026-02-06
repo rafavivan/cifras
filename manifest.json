@@ -1,7 +1,7 @@
 {
   "name": "Cifras e Acordes",
   "short_name": "Cifras",
-  "start_url": "Indice.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#111111",
