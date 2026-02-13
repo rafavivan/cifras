@@ -155,7 +155,7 @@
    MOBILE ADJUSTMENTS
 ================================ */
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   #chord-preview {
     max-width: 90%;
   }
