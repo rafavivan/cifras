@@ -1,75 +1,115 @@
-<html>
-	<meta charset="UTF-8">
-	<head>
-		<link rel="stylesheet" href="Indice.css">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>RV Cifras – Samba & Pagode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>RVivan - Cifras de Pagode</title>
+    <link rel="stylesheet" href="Indice.css">
 
-		<!-- colors used:
-		#FBA36F - peach;  #FFE065 - yellow
-		#D25306 - red  ;  #772F03 - dark red  -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/cifras/sw.js");
+        }
+    </script>
 
-		<script>
-			if ("serviceWorker" in navigator) {
-				navigator.serviceWorker.register("/cifras/sw.js");
-			}
-		</script>
+    <a id="Topo"></a>
+</head>
 
-		<A NAME="Topo"></A>
+<body>
 
-	</head>
+<table class="container">
+    <tr>
+        <td class="title">
+            RV Cifras<br>
+            <span>Samba & Pagode</span>
+        </td>
+    </tr>
 
-	<body>
-		<!-- Cell with different alignments
-			<td style="display: flex; justify-content: space-between;">
-				<span>Left Side</span>
-				<span style="flex-grow: 1; text-align: center;">Centered Part</span>
-				<span>Right Side</span>
-			</td>
-		-->
-		<table class="center-table" border="0">
-			<tr><td colspan="3"><div style="text-align: center; font-family: Arial Black; font-size: 40px; color:#D25306"><b><i>RV Cifras - Samba & Pagode</i></b></div></td></tr>
-			<tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr>
-			<tr><td colspan="3"><div style="text-align: center; font-family: Arial Black; font-size: 20px; color:#FBA36F"><b>Índice das Músicas</b></div></td></tr>
-			<tr><td colspan="3"><div style="text-align: center; font-family: Arial Black; font-size: 15px; color:#FBA36F"><b><i>Clique no Nome da Música para visualizar</b></i></div></td></tr>
-			<tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr>
-			<tr><td colspan="3"><div style="text-align: center; font-family: Arial Black; font-size: 18px";><a href="#A">A</A>&nbsp;|&nbsp;<a href="#B">B</A>&nbsp;|&nbsp;<a href="#C">C</A> |
-				<a href="#D">D</A>&nbsp;|&nbsp;<a href="#E">E</A>&nbsp;|&nbsp;<a href="#F">F</A> |
-				<a href="#G">G</A>&nbsp;|&nbsp;<a href="#H">H</A>&nbsp;|&nbsp;<a href="#I">I</A> |
-				<a href="#J">J</A>&nbsp;|&nbsp;<a href="#K">K</A>&nbsp;|&nbsp;<a href="#L">L</A></div></td></tr>
-			<tr><td colspan="3"><div style="text-align: center; font-family: Arial Black; font-size: 18px";><a href="#M">M</A>&nbsp;|&nbsp;<a href="#N">N</A>&nbsp;|&nbsp;<a href="#O">O</A> |
-				<a href="#P">P</A>&nbsp;|&nbsp;<a href="#P">Q</A>&nbsp;|&nbsp;<a href="#R">R</A> |
-				<a href="#S">S</A>&nbsp;|&nbsp;<a href="#T">T</A>&nbsp;|&nbsp;<a href="#U">U</A> |
-				<a href="#V">V</A>&nbsp;|&nbsp;<a href="#X">X</A>&nbsp;|&nbsp;<a href="#Z">Z</A></div></td>
-			</tr>
-		</table>
-		<BR><BR>
-		<table class="center-table" border="0" style="font-family: Verdana; font-size: 18px; font-weight: bold";><A NAME="A"></A>
-			<tr><td colspan="3"><span class="artista">Alcione</span></td></tr>
-			<tr><td><li><a HREF="../cifras/Musicas/Alcione01.html"><span class="a">Não Deixe O Samba Morrer</span></A></li></td></tr>
-			<tr><td><div style="text-align: center;"><span class "link"><a href="#Topo">Topo</A></span></div></td></tr>
-			<tr><td><HR color="black"></td></tr>
-			<tr><td>&nbsp;</td></tr>
-			<tr><td colspan="3"><span class="artista">Almir Guineto</span></td></tr>
-			<tr><td><li><span class="a">Brilho no Olhar</span></A></li></td></tr>
-			<tr><td><li><a HREF="../cifras/Musicas/AlmirGuineto02.html"><span class="a">Caxambu</span></A></li></td></tr>
-			<tr><td><li><span class="a">Conselho</span></A></li></td></tr>
-			<tr><td><li><span class="a">Insensato Destino</span></A></li></td></tr>
-			<tr><td><li><span class="a">Mel na Boca</span></A></li></td></tr>
-			<tr><td><div style="text-align: center;"><span class "link"><a href="#Topo">Topo</A></span></div></td></tr>
-			<tr><td><HR color="black"></td></tr>
-			<tr><td>&nbsp;</td></tr>
-			<tr><td colspan="3"><span class="artista">Arlindo Cruz & Sombrinha</span></td></tr>
-			<tr><td><li><A HREF="../cifras/Musicas/ACS01.html"><span class="a">Ainda É Tempo De Ser Feliz (Ao Vivo)</span></A></li></td></tr>
-			<tr><td><li><span class="a">É Sempre Assim (Ao Vivo)</span></A></li></td></tr>
-			<tr><td><li><A HREF="../cifras/Musicas/ACS03.html"><span class="a">Um Dia (Ao Vivo)</span></A></li></td></tr>
-			<tr><td><div style="text-align: center;"><span class "link"><a href="#Topo">Topo</A></span></div></td></tr>
-			<tr><td><HR color="black"></td></tr>
-			<tr><td>&nbsp;</td></tr>
+    <tr><td class="subtitle">Índice das Músicas</td></tr>
+    <tr><td class="hint">Clique no nome da música para visualizar</td></tr>
 
-		</table>
+    <tr>
+        <td class="alphabet">
+            <a href="#A">A</a>
+            <a href="#B">B</a>
+            <a href="#C">C</a>
+            <a href="#D">D</a>
+            <a href="#E">E</a>
+            <a href="#F">F</a>
+            <a href="#G">G</a>
+            <a href="#H">H</a>
+            <a href="#I">I</a>
+            <a href="#J">J</a>
+            <a href="#K">K</a>
+            <a href="#L">L</a>
+            <br>
+            <a href="#M">M</a>
+            <a href="#N">N</a>
+            <a href="#O">O</a>
+            <a href="#P">P</a>
+            <a href="#Q">Q</a>
+            <a href="#R">R</a>
+            <a href="#S">S</a>
+            <a href="#T">T</a>
+            <a href="#U">U</a>
+            <a href="#V">V</a>
+            <a href="#X">X</a>
+            <a href="#Z">Z</a>
+        </td>
+    </tr>
+</table>
 
-		<BR><BR><BR>
+<br><br>
 
-	</body>
+<table class="container songs">
+    <a id="A"></a>
+
+    <tr>
+        <td class="artist">Alcione</td>
+    </tr>
+    <tr>
+        <td class="song">
+            <a href="../cifras/Musicas/livro_musicas.html#Alcione03">Não Deixe O Samba Morrer</a>
+        </td>
+    </tr>
+
+    <tr><td class="back-top"><a href="#Topo">↑ Topo</a></td></tr>
+    <tr><td class="divider"></td></tr>
+
+    <tr>
+        <td class="artist">Almir Guineto</td>
+    </tr>
+    <tr><td class="song">Brilho no Olhar</td></tr>
+    <tr>
+        <td class="song">
+            <a href="../cifras/Musicas/AlmirGuineto02.html">Caxambu</a>
+        </td>
+    </tr>
+    <tr><td class="song">Conselho</td></tr>
+    <tr><td class="song">Insensato Destino</td></tr>
+    <tr><td class="song">Mel na Boca</td></tr>
+
+    <tr><td class="back-top"><a href="#Topo">↑ Topo</a></td></tr>
+    <tr><td class="divider"></td></tr>
+
+    <tr>
+        <td class="artist">Arlindo Cruz & Sombrinha</td>
+    </tr>
+    <tr>
+        <td class="song">
+            <a href="../cifras/Musicas/ACS01.html">Ainda É Tempo De Ser Feliz (Ao Vivo)</a>
+        </td>
+    </tr>
+    <tr><td class="song">É Sempre Assim (Ao Vivo)</td></tr>
+    <tr>
+        <td class="song">
+            <a href="../cifras/Musicas/ACS03.html">Um Dia (Ao Vivo)</a>
+        </td>
+    </tr>
+
+    <tr><td class="back-top"><a href="#Topo">↑ Topo</a></td></tr>
+</table>
+
+</body>
 </html>

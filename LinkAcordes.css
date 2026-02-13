@@ -6,7 +6,7 @@
 .chord-item {
   font-family: 'Courier New';
   font-weight: bold;
-  color: red;
+  color: #D25306;
 }
 
 .chord-space {
@@ -87,6 +87,70 @@
   font-size: 18px;
 }
 
+#floatingNav {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 9999;
+}
+
+#floatingNav a {
+  background: #000;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0.85;
+}
+#floatingNav a:hover {
+  opacity: 1;
+}
+
+#floatingPrev,
+#floatingNext {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+#floatingPrev { left: 20px; }
+#floatingNext { right: 20px; }
+
+.navButton {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
+  transition: all 0.25s ease;
+}
+
+.navButton:hover {
+  background: rgba(0, 0, 0, 0.65);
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.navButton:active {
+  transform: scale(0.96);
+}
+
 /* ===============================
    MOBILE ADJUSTMENTS
 ================================ */
@@ -106,5 +170,15 @@
 
   #chord-preview .next {
     right: -12px;
+  }
+
+  #floatingNav {
+    display: none;
+  }
+
+  .navButton {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
   }
 }
