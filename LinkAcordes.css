@@ -1,0 +1,262 @@
+body {
+  font-family: Courier New;
+  font-size: 12pt;
+  background-color: #fffaf5;
+  color: #000000;
+  width: 80%;
+  /*max-width: 750px;*/
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Arial";
+  font-size: 14pt;
+  font-weight: bold;
+  color: #772F03;
+}
+
+.tom { font-weight: bold; }
+.intro { font-weight: bold; }
+
+hr {
+  height: 0;
+  border: none; border-top: 1px solid #e0c4a8;
+  padding: 8px 0;
+}
+.back-top {
+  font-family: Arial;
+  text-align: center;
+  padding: 10px 0;
+}
+.back-top a {
+  font-size: 16px;
+  text-decoration: none;
+  color: #3a2a1a;
+}
+.back-top a:hover {
+  text-decoration: underline;
+  color: #D25306;
+}
+
+.lyrics {
+  font-family: 'Courier New';
+  color: black;
+}
+
+.chord-item {
+  font-family: 'Courier New';
+  font-weight: bold;
+  color: #D25306;
+}
+
+pre { white-space: pre-wrap; margin: 0; }
+
+.chord-space { white-space: pre-wrap; }
+
+#chord-preview {
+  position: absolute;
+  display: none;
+  background: #fffaf5;
+  border: 1px solid #ccc;
+  /*padding: 10px 40px 10px;*/
+  padding: 10px 40px;
+  border-radius: 5%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+/* Image wrapper becomes the reference */
+.image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#chord-image {
+  display: block;
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+#chord-preview .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  width: 30px;
+  height: 25px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: -5;
+  background: #fffaf5;
+  color: #000000;
+  border: 1px solid #ccc;;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+  border-radius: 20%;
+  transition: all 0.25s ease;
+}
+
+/* Hover glow */
+#chord-preview button.nav:hover {
+  border: none;
+  box-shadow: 0 0 10px rgb(119, 47, 3);
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* Press down */
+#chord-preview button.nav:active {
+  transform: translateY(-50%) scale(0.92);
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.35);
+}
+
+#chord-preview .prev {margin: 10px; left: -45px;}
+#chord-preview .next {margin: 10px; right: -45px;}
+
+#chord-preview .dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  min-height: 10px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: #ccc;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.dot.active {
+  background: #333;
+}
+
+.close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border: none;
+  background: none;
+  font-size: 18px;
+}
+
+#floatingNav {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 9999;
+}
+
+#floatingNav a {
+  background: #000;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0.85;
+}
+#floatingNav a:hover {
+  opacity: 1;
+}
+
+#floatingPrev,
+#floatingNext {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+#floatingPrev { left: 20px; }
+#floatingNext { right: 20px; }
+
+.navButton {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
+  transition: all 0.25s ease;
+}
+
+.navButton:hover {
+  background: rgba(0, 0, 0, 0.65);
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.navButton:active {
+  transform: scale(0.96);
+}
+
+/* ===============================
+   MOBILE ADJUSTMENTS
+================================ */
+
+@media (max-width: 500px) {
+  #chord-preview {
+    max-width: 90%;
+  }
+
+  #chord-preview img {
+    width: 100%;
+  }
+
+  #chord-preview .prev {
+    left: -12px;
+  }
+
+  #chord-preview .next {
+    right: -12px;
+  }
+
+  #floatingNav {
+    display: none;
+  }
+
+  .navButton {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+}
+
+@media (hover: none) {
+  #chord-preview button.nav:hover {
+    box-shadow: none;
+    transform: translateY(-50%);
+  }
+}

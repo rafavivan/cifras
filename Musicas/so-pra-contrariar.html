@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Só pra Contrariar</title>
+</head>
+
+
+<body>
+
+
+<section class="song"
+         id="a-rede"
+         data-artist="Só pra Contrariar"
+         data-title="A Rede">
+
+<h2>Só pra Contrariar – <i>A Rede</i></h2><div class="tom">Tom.......: <span class="chord">G#m</span></div><div class="intro">Introdução: <span class="chord">G#m G#7 C#m A#m5-7  D#7 G#m</span></div><pre><span class="lyrics">
+Solo......: 16 18 16 31 22  22 24 25  27 25 24  34 33 32  44 42 31 33 34  36 33 31
+<br>
+<span class="chord"> G#m        D#7         G#m  D#7</span>
+Quando ela partiu ela levou
+<span class="chord">G#m          D#7       G#m   C#m  D#7</span>
+Um pedaço de mim e nem ligou
+<span class="chord">G#m              Fº        C#m     C#m5+   A#m5-/7</span>
+Deixou uma chaga profunda, no meu coração, só deixou
+<span class="chord">D#7        G#m</span>
+Saudade e solidão
+<br>
+<span class="chord">G#m            D#7            G#m          D#7</span>
+Lembro dos momentos que eram nossos meu amor
+<span class="chord">G#m       D#7              G#m     C#m D#7</span>
+Eram só alegria e não existia dor
+<span class="chord">G#m              Fº      C#m       C#m5+</span>
+Quando eu olho a rede, pendurada no giral
+<span class="chord">A#m5-/7   G#m             C#m</span>
+Foram só momentos e eu desci
+<span class="chord">             D#7</span>
+Mais um degrau
+<br>
+<span class="chord">G#m/G#                Fº</span>
+A gente se amava na rede
+<span class="chord">C#m             C#m5+</span>
+A gente dormia na rede
+<span class="chord">A#m5-/7             D#7    G#m</span>
+Na rede a gente fazia amor
+</span>
+</pre><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div>
+
+<hr>
+
+</section>
+
+
+<section class="song"
+         id="minha-fantasia"
+         data-artist="Só pra Contrariar"
+         data-title="Minha Fantasia">
+
+<h2>Só pra Contrariar – <i>Minha Fantasia</i></h2><div class="tom">Tom.......: <span class="chord">A</span></div><div class="intro">Introdução: <span class="chord">A  E/G#  A7  D  G  G#  A</span></div><pre><span class="lyrics">
+<br>
+<span class="chord">( A  E/G#  A7  D  G ^ G# ^ A )</span>
+<br>
+A minha fantasia
+Era te ter um dia
+Não esperava assim tão de repente
+<br>
+Nada mal
+Nós dois juntinhos
+Sensacional
+<br>
+Foi fatal
+O seu carinho,
+Carinho animal
+<br>
+A minha fantasia
+Era te ter um dia
+Não esperava assim tão de repente
+<br>
+Você sair da linha
+E viajar na minha
+Aconteceu te quero novamente
+<br>
+Só ficar depois me deixa
+Você tentou mais não me esqueceu
+O dia amanhecendo e você querendo mais
+Fez de novo, gostoso, me enlouqueceu
+</span>
+</pre><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div>
+
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

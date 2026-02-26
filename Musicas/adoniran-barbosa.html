@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Adoniran Barbosa</title>
+</head>
+
+
+<body>
+
+
+<section class="song"
+         id="samba-do-arnesto"
+         data-artist="Adoniran Barbosa"
+         data-title="Samba Do Arnesto">
+
+<h2>Adoniran Barbosa – <i>Samba Do Arnesto</i></h2><div class="tom">Tom.......: <span class="chord">D</span></div><div class="intro">Introdução: <span class="chord">D7  G  Gm  D  B7  E7  A7  D</span></div><pre><span class="lyrics">
+<br>
+<span class="chord">D                                        A7/5+</span>
+O Arnesto nos convidô prum samba, ele mora no Brás
+<span class="chord">      D               B7         Em  C7 ^ B7 ^</span>
+Nóis fumo e não encontremos ninguém
+<span class="chord">   ^   Em          A7          D   B7</span>
+Nóis vortemo cuma baita duma reiva
+<span class="chord">           E7  A7           D</span>
+Da outra veiz nóis num vai mais
+<br>
+<span class="chord">                A7/5+</span>
+Nóis não semos tatu!
+<span class="chord">      A7                      A</span>
+Outro dia encontremo com o Arnesto
+<span class="chord">              Em         A7          D     C7</span>
+Que pidiu descurpa mais nóis não aceitemos
+<span class="chord"> B7          Em            Gm            D    B7</span>
+Isso não se faz, Arnesto, nóis não se importa
+<span class="chord">            E7                    A7      D</span>
+Mais você devia ter ponhado um recado na porta
+<br>
+Anssim: "Ói, turma, num deu prá esperá
+A vez que isso num tem importância, num faz má
+Depois que nóis vai, depois que nóis vorta
+Assinado em cruz porque não sei escrever Arnesto"
+<br>
+<span class="chord">(D7  G  Gm  D  B7  E7  A7  D)</span>
+Cais, cais, cais, cais, cais, cais, cais...
+</span>
+</pre><br><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div><br>
+
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Reinaldo</title>
+</head>
+
+
+<body>
+
+
+<section class="song"
+         id="meu-negocio-e-pagodear"
+         data-artist="Reinaldo"
+         data-title="Meu Negócio É Pagodear">
+
+<h2>Reinaldo – <i>Meu Negócio É Pagodear</i></h2><div class="tom">Tom: <span class="chord">F</span></div><br><span class="chord">      C7           F</span><span class="chord">              C7</span><span class="chord">                F</span><br><span class="chord">      C7            F</span><span class="chord">              C7</span><span class="chord">                F</span><br><span class="chord">        C7       F</span><span class="chord">         C7       F</span><a id="Reinaldo01"></a>
+
+<hr>
+
+</section>
+
+
+<section class="song"
+         id="retrato-cantado-de-um-amor"
+         data-artist="Reinaldo"
+         data-title="Retrato Cantado De Um Amor">
+
+<h2>Reinaldo – <i>Retrato Cantado De Um Amor</i></h2><div class="tom">Tom.......: <span class="chord">Dm</span></div><div class="intro">Introdução: <span class="chord">Dm  Gm  C7/9  F7+  A7  Dm  A#7  A7</span></div><pre><span class="lyrics">
+<br>
+<span class="chord"> Dm                       Gm</span>
+Veja bem nosso amor é perfeito
+<span class="chord">                 A7        D           A7</span>
+Pois até nos defeitos sabemos nos superar
+<span class="chord"> Dm                            Gm</span>
+Lembro sim, bons momentos passamos
+<br>
+<span class="chord">                  A7            D   D7</span>
+Mesmo assim suplantamos por confiar
+<span class="chord">     Gm   C7                     F            Dm</span>
+Toda vez que converso com meu coração vejo a luz
+<span class="chord">                  Bb7                A7         D</span>
+Me sinto como um pecador aos pés da cruz a confessar
+<br>
+<span class="chord">      Gm      C7            F          Dm</span>
+Este amor frutifica a cada instante em mim
+<span class="chord">                      Bb7             A7</span>
+Me dando a certeza constante que não vai
+<span class="chord">           D  A7</span>
+Chegar ao fim
+<br>
+<span class="chord">D            F#m              Am</span>
+É que o teu calor tem grande fulgor
+<span class="chord">       D7          G</span>
+Que excita o meu corpo
+<span class="chord"> Gm                 Dm</span>
+Tem lampejos de inspiração
+<span class="chord">              Gm                    A7</span>
+Me conduz ao espaço, seduzindo a razão
+<span class="chord">   D       F#m</span>
+E além do mais me sinto incapaz
+<span class="chord">      D7         G</span>
+De viver um desamor
+<br>
+<span class="chord">          Gm                   D    C7  B7</span>
+Pra finalizar, resumindo esta história
+<span class="chord">                              Bb7</span>
+Este é um retrato cantado que vem
+<span class="chord">       A7             D              D7</span>
+Ratificar um grande amor, um grande amor êh
+<span class="chord">          Gm                   D    C7  B7</span>
+Pra finalizar, resumindo esta história
+<span class="chord">                              Bb7</span>
+Este é um retrato cantado que vem
+<span class="chord">       A7             D  A7</span>
+Ratificar um grande amor
+</span>
+</pre><div><a href="#Revelação01">Next →</a></div><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div>
+
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

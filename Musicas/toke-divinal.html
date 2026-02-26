@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Toke Divinal</title>
+</head>
+
+
+<body>
+
+
+<section class="song"
+         id="o-mundo-vai-saber"
+         data-artist="Toke Divinal"
+         data-title="O Mundo Vai Saber">
+
+<h2>Toke Divinal – <i>O Mundo Vai Saber</i></h2><div class="tom">Tom.......: <span class="chord">G</span></div><div class="intro">Introdução: <span class="chord">G  Em7  D  C  Am7  C/D  D7</span></div><pre><span class="lyrics">
+<br>
+<span class="chord">         G</span>
+Desde o dia em que te vi
+<span class="chord">       Em7</span>
+Eu não pude resistir
+<span class="chord">      C            Am           C/D  D7</span>
+Foi amor, foi aventura, foi paixão
+<br>
+<span class="chord">         G</span>
+Desde então me transformei
+<span class="chord">      Em7</span>
+Muito tempo eu esperei
+<span class="chord">      C            Am        C/D  D7</span>
+Que você notasse a minha afeição
+<br>
+<span class="chord">             Em7</span>
+Tudo foi em vão
+<span class="chord">     Bm7         C7+            G</span>
+Você nem sabe sequer que eu existo
+<span class="chord">            Em7</span>
+Tudo foi em vão
+<span class="chord">       Bm7             Am7  Am/G</span>
+Mas cuidado quando eu quero
+<span class="chord">                C/D  D7</span>
+Amor eu não resisto
+<br>
+<span class="chord">               G</span>
+O mundo vai saber, nasci pra te amar
+<span class="chord">               Em7</span>
+E mesmo sem querer você vai me notar
+<span class="chord">D                C               Am7</span>
+  Eu vou usar o meu poder de sedução
+<span class="chord">                  C/D             D7</span>
+Eu vou quebrar o gelo do teu coração
+<br>
+<span class="chord">              G</span>
+O mundo vai saber o quanto eu te esperei
+<span class="chord">                Em7</span>
+Te amando em segredo em sonhos te encontrei
+<span class="chord">D                    C                      Am7</span>
+  Ninguém vai te querer do jeito que eu te quis
+<span class="chord">                 C/D                 D7</span>
+Eu vou te conquistar pra me fazer feliz
+<br>
+</span>
+</pre><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div>
+
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

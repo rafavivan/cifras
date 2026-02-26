@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Arlindo Cruz</title>
+</head>
+
+
+<body>
+
+
+<section class="song"
+         id="o-meu-lugar"
+         data-artist="Arlindo Cruz"
+         data-title="O Meu Lugar">
+
+<h2>Arlindo Cruz – <i>O Meu Lugar</i></h2><div class="tom">Tom: <span class="chord">C</span></div><pre><span class="lyrics">
+
+<span class="chord">  Am                       D                         Dm          G7</span>
+O meu lugar é caminho de Ogum e Iansã, lá tem samba até de manhã
+<span class="chord">              C         Dm ^ E7 ^</span>
+Uma ginga em cada andar
+<span class="chord">^ Am                      D                          Dm          G7</span>
+O meu lugar é cercado de luta e suor, esperança num mundo melhor
+<span class="chord">               Gm      C7</span>
+E cerveja pra comemorar
+<span class="chord">  Fm                           C7+        Am</span>
+O meu lugar tem seus mitos e seres de luz
+<span class="chord">                D                            Dm       E7</span>
+É bem perto de Osvaldo Cruz, Cascadura, Vaz Lobo e Irajá
+<span class="chord">  Am                    D                           Dm        G7</span>
+O meu lugar é sorriso é paz e prazer, o seu nome é doce dizer
+<span class="chord">       C   B7   Dm   G7     C  B7    Dm  E7</span>
+Madureira, lá laiá, Madureira, lá laiá
+<br>
+<span class="chord">   Am                     Em</span>
+Ah meu que lugar a saudade me faz relembrar
+<span class="chord">             Dm            E7              Am  Dm  E7</span>
+Os amores que eu tive por lá é difícil esquecer
+<span class="chord">Am                        Em</span>
+Doce lugar que é eterno no meu coração
+<span class="chord">                B7                              E</span>
+E aos poetas trás inspiração pra cantar e escrever
+<span class="chord">A                             C#7</span>
+Ai meu lugar quem não viu Tia Eulália dançar
+<span class="chord">                    D               E7       A          Em  A7</span>
+Vó Maria o terreiro benzer e ainda tem jongo à luz do luar
+<span class="chord">Dm        G7                 C           Am         Dm              G7</span>
+Ai meu lugar tem mil coisas pra gente dizer, o difícil é saber terminar
+<span class="chord">       C   B7   Dm   G7    C   B7       Dm  G7    C</span>
+Madureira, lá laiá, Madureira, lá laiá, Madureira
+<br>
+<span class="chord">          Em                  Dm            G7    C</span>
+Em cada esquina um pagode num bar... em Madureira
+<span class="chord">          Em                    Dm           G7   Gm</span>
+Império e Portela também são de lá... Em Madureira
+<span class="chord">        C7              F7+              G7                   Em</span>
+E no Mercadão você pode comprar, por uma pechincha você vai levar
+<span class="chord">                                 Dm                G7   Gm</span>
+Um dengo, um sonho pra quem quer sonhar... em Madureira
+<span class="chord">         C7                 F7+                G7                  Em</span>
+E quem se habilita até pode chegar, tem jogo de lona, caipira e bilhar
+<span class="chord">                        Dm               G7    Gm</span>
+Buraco, sueca pro tempo passar... em Madureira
+<span class="chord">      C7                F7+                G7                Em7</span>
+E uma fezinha até posso fazer, no grupo, dezena, centena e milhar
+<span class="chord">                        Dm               G7   Gm</span>
+E nos 7 lados eu vou te cercar... em Madureira
+<span class="chord">        C7        F7+            G7          C         C7        F7+            G7   C   B7   Dm    G7    C</span>
+E lalalaia  lalaia lalaia e lalalaia lalaia... E lalalaiala laia la la ia...Em Madureira lá laiá... em    Madureira.
+</span>
+</pre><a id="Arlindo01"></a>
+
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

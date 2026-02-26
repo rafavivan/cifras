@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Xande De Pilares</title>
+</head>
+
+
+<body>
+
+
+<section class="song"
+         id="clareou"
+         data-artist="Xande De Pilares"
+         data-title="Clareou">
+
+<h2>Xande De Pilares – <i>Clareou</i></h2><div class="tom">Tom.......: <span class="chord">D</span></div><div class="intro">Introdução: <span class="chord">A  G  D  A</span></div><pre><span class="lyrics">
+<br>
+<span class="chord">     A          G     D   A</span>
+(2x)   Clareou ôôôô ôôôô ôôô
+<br>
+<span class="chord">A                  Em7</span>
+A vida é pra quem sabe viver
+<span class="chord">    D               A</span>
+Procure aprender a arte
+<span class="chord">                   Em7</span>
+Pra quando apanhar não se abater
+D                    A    G ˆ D ˆ A
+Ganhar e perder faz parte
+<br>
+<span class="chord">A</span>
+Levante a cabeça, amigo, a vida não é tão ruim
+<span class="chord">Em7</span>
+No mundo a gente perde, mas nem sempre o jogo é assim
+<span class="chord"> D</span>
+Pra tudo tem um jeito
+<span class="chord">                                 A           G  D  A</span>
+E se não teve jeito, ainda não chegou ao fim
+<br>
+<span class="chord">A</span>
+Mantenha a fé na crença, se a ciência não curar
+<span class="chord">Em7</span>
+Pois se não tem remédio, então remediado está
+<span class="chord"> D                                       	          A</span>
+Não é um perdedor quem sabe a dor de uma derrota enfrentar
+<span class="chord">D</span>
+E a quem Deus prometeu, jamais faltou
+<span class="chord">                          A    A ^ Bm7 ^ A ^ A7</span>
+Na hora certa o bom Deus dará
+<br>
+<span class="chord"> |   D</span>
+B|  Deus é maior!
+I|                                 A
+S|  Maior é Deus, quem tá com Ele nunca está só
+ |  O que seria do mundo sem Ele
+<br>
+<span class="chord">Em7</span>
+Chega de chorar
+<span class="chord">G                        D</span>
+Você já sofreu demais, agora chega
+<span class="chord">                             A</span>
+Chega de achar que tudo se acabou
+<span class="chord">                      Em7</span>
+Pode a dor uma noite durar
+<span class="chord">G                       D</span>
+Mas um novo dia sempre vai raiar
+<span class="chord">                             A</span>
+E quando menos esperar, clareou
+<br>
+<span class="chord">     A          G     D   A</span>
+(2x)   Clareou ôôôô ôôôô ôôô
+</span>
+</pre><div><a href="#Zeca01">Next →</a></div><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div>
+
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

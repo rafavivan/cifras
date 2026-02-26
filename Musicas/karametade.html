@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Karametade</title>
+</head>
+
+
+<body>
+
+
+<section class="song"
+         id="decisao"
+         data-artist="Karametade"
+         data-title="Decisão">
+
+<h2>Karametade – <i>Decisão</i></h2><div class="tom">Tom.......: <span class="chord">Fm</span></div><div class="intro">Introdução: <span class="chord">Gm7  C7/9  Fm7  Db7+  Bbm  Bbm7  Gm7  C7/9  Fm7/9</span></div><pre><span class="lyrics">
+<br>
+<span class="chord">                   Fm       Bbm</span>
+Há tanto tempo queria te falar
+<span class="chord">                           Eb7</span>
+Mas tinha medo de te magoar
+<br>
+O meu amor chegou ao fim,
+<span class="chord">  Ab            Gm      C7     Fm</span>
+É duro eu sei, mas é melhor assim
+<br>
+<span class="chord">                            Bbm</span>
+Difícil foi tomar esta decisão
+<span class="chord">                            Eb7</span>
+Não deu pra evitar a separação
+<span class="chord">                                     Cm  F7</span>
+Eu nem sei bem ao certo o que aconteceu
+<br>
+<span class="chord">    Bbm                Eb7                Ab</span>
+Cansei, preciso de um tempo pra cuidar de mim
+<span class="chord">                Fm                   Gm</span>
+Tirar da minha vida as marcas do passado
+<span class="chord">                C7                   Cm  F7</span>
+Lamento mas não deu pra ficar ao teu la..do
+<br>
+<span class="chord">     Bbm                  Eb7             Ab</span>
+Não sei, talvez um dia eu possa me arrepender
+<span class="chord">                 Fm             Gm</span>
+Mas sinto que a minha vida sem você
+<span class="chord">          C7              F</span>
+Está a um passo da felicidade
+<br>
+<span class="chord">Gm     C7    F          Dm      Gm</span>
+Agora vou viver sem ter medo de ser feliz
+<span class="chord">                 C7                 F</span>
+O que passou passou, como o ditado diz
+<span class="chord">                  Cm      F7          Bb    Bbm</span>
+Vou seguir meu caminho, sozinho, não volto atrás
+<span class="chord">    F      Dm     Gm      C7      F</span>
+Só sei que teu amor, não quero mais
+</span>
+</pre><div><a href="#Katinguelê01">Next →</a></div><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div>
+
+<hr>
+
+</section>
+
+
+<section class="song"
+         id="morangos-do-nordeste"
+         data-artist="Karametade"
+         data-title="Morangos Do Nordeste">
+
+<h2>Karametade – <i>Morangos Do Nordeste</i></h2><div class="tom">Tom.......: <span class="chord">C</span></div><div class="intro">Introdução: <span class="chord">C  G  Dm  Am  G7/4  G7</span></div><pre><span class="lyrics">
+<br>
+<span class="chord">	C                                        G7</span>
+	Estava tão tristonho quando ela apareceu
+<span class="chord">	Dm                                   Am  G7/4 G7</span>
+	 Seus olhos que fascinam logo estremeceu
+<span class="chord">	C                                      G7</span>
+	Os meus amigos falam que eu sou demais
+<span class="chord">	Dm                               Am  G7/4  G7</span>
+	 Mas é somente ela que me satisfaz
+<br>
+<br>
+<span class="chord">	C                             G7</span>
+	É somente ela que me satisfaz
+<span class="chord">	Dm                           Am  G7/4  G7</span>
+	 É somente ela que me satisfaz
+<span class="chord">	C                                 G7</span>
+	Você só colheu o que você plantou
+<span class="chord">	Dm                                         Am  G7/4  G7</span>
+	 Por isso que eles falam que eu sou sonhador
+<span class="chord">	C                                  G7  G7/4  G7</span>
+	E digo o que ela significa pra mim
+<span class="chord">	C  				        G7  G7/4  G7</span>
+	Ela é um morango aqui no Nordeste
+<span class="chord">	C 					      G7  G7/4  G7</span>
+	Tu sabes não existe sou cabra da peste
+<span class="chord">	C                                    G7</span>
+	Apesar de colher as batatas da terra
+<span class="chord">	Dm                                     Am  G7/4  G7</span>
+	 Com essa mulher eu vou até pra guerra
+<br>
+<span class="chord">	C                 G</span>
+	Aaaaaaaiiii, é amoooor
+<span class="chord">	        Dm</span>
+	Ai é amor
+<span class="chord">	    Am  G7/4  G7</span>
+	É amor
+<br>
+<span class="chord">	C                 G</span>
+	Aaaaaaaiiii, é amoooor
+<span class="chord">	        Dm</span>
+	Ai é amor
+<span class="chord">	    Am  G7/4  G7</span>
+	É amor
+<br>
+</span>
+</pre><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div>
+
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

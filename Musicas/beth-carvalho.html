@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Beth Carvalho</title>
+</head>
+
+
+<body>
+
+
+<section class="song"
+         id="samba-de-arere"
+         data-artist="Beth Carvalho"
+         data-title="Samba De Arerê">
+
+<h2>Beth Carvalho – <i>Samba De Arerê</i></h2><div class="tom">Tom.......: <span class="chord">G#m</span></div><div class="intro">Introdução: <span class="chord">G#m  %  G#m  D#7  G#m  %</span></div><pre><span class="lyrics">
+<br>
+<span class="chord">G#m  D#7            G#m                         F#7</span>
+Meu samba tem muito axé, quer ver, vem dizer no pé
+<span class="chord">                                           B</span>
+Escute o som do tantã, tem samba até de manhã
+<br>
+<span class="chord">                                     F#7</span>
+Pra curar o desamor e a tristeza afastar
+<span class="chord">                   E7      D#7             F#m</span>
+Você que nunca sambou, se liga tem que sambar
+<span class="chord">     D#7          G#m                       F#7</span>
+Meu samba é de Arerê, quem samba não quer parar
+<span class="chord">                                            B</span>
+Na hora do vamo vê, meu samba é ruim de aturar
+<span class="chord">                                       F#7</span>
+Tem o dom de resolver, deixa tudo no lugar
+<span class="chord">                   E7      D#7            G#m</span>
+Você que nunca sambou, se liga tem que sambar
+<br>
+<span class="chord"> |  G#7    C#m       F#7      B</span>
+ |  Vem... ver o meu povo cantar
+<span class="chord">B|  E7     D#7                 G#m</span>
+I|  Vem... ver o meu samba é assim
+S|  G#7   C#m       F#7        B
+ |  Aaaaaamor você pode provar
+<span class="chord"> |   E7   D#7                  G#m</span>
+ |  Mas deixe um pouquinho pra mim
+</span>
+</pre><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div>
+
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

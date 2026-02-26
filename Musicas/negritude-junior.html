@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Negritude Júnior</title>
+</head>
+
+
+<body>
+
+
+<section class="song"
+         id="gente-da-gente"
+         data-artist="Negritude Júnior"
+         data-title="Gente Da Gente">
+
+<h2>Negritude Júnior – <i>Gente Da Gente</i></h2><div class="tom">Tom.......: <span class="chord">D</span></div><div class="intro">Introdução: <span class="chord">D  G  D  A7  Bb7  G  A7</span></div><pre><span class="lyrics">
+<br>
+<span class="chord">D                B7       E7</span>
+Esse samba é pra gente da gente
+<span class="chord">           A7       C</span>
+Que vive a pegar no batente
+<span class="chord">               B7</span>
+Com sol ou com chuva ou doente
+<span class="chord">         A7               D</span>
+Sabe que tem que trabalhar
+<br>
+<span class="chord">          Bm              Em</span>
+Esse povo merece uma medalha
+<span class="chord">             A7      F#m</span>
+Porque nunca foge da batalha
+<span class="chord">           B7              E7</span>
+Essa gente da gente não dá falha
+<span class="chord">               A7         Am</span>
+Porque não tem fã de canalha
+<br>
+<span class="chord">                D7          G</span>
+Essa gente é na gente que crê
+<span class="chord">            Gm          D</span>
+Negritude é lição de viver
+<span class="chord">          Bm           Em</span>
+Juventude drogada pra quê?
+<span class="chord">                   A7       Am</span>
+Ai meu Deus, o que posso fazer?
+<br>
+<span class="chord">              D7        G</span>
+Essa gente já sofre demais
+<span class="chord">             Gm        D</span>
+São tratados como animais
+<span class="chord">               Bm            Em</span>
+E só querem um pouquinho de paz
+<span class="chord">           A7            D</span>
+E precisam ouvir "Racionais"
+</span>
+</pre><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div>
+
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

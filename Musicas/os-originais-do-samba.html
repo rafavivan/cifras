@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Os Originais do Samba</title>
+</head>
+
+
+<body>
+
+
+<section class="song"
+         id="casa-de-bamba"
+         data-artist="Os Originais do Samba"
+         data-title="Casa De Bamba">
+
+<h2>Os Originais do Samba – <i>Casa De Bamba</i></h2><div class="tom">Tom.......: <span class="chord">B</span></div><div class="intro">Introdução: <span class="chord">B</span></div><pre><span class="lyrics">
+<br>
+R|                             C#m
+E|  Na minha casa todo mundo é bamba
+<span class="chord">F|             F#7               B</span>
+R|  Todo mundo bebe, todo mundo samba
+Ã|
+O|  2 VEZES
+<br>
+<span class="chord">B|                                  C#m</span>
+I|  Na minha casa não tem bola pra vizinho
+S|                 F#7                        B
+ |  Não se fala do alheio, nem se liga pra candinha
+<br>
+REFRÃO
+<br>
+<span class="chord">B|                                   C#m</span>
+I|  Na minha casa não se liga pra intriga
+S|            F#7                 B
+ |  Todo mundo xinga, todo mundo briga
+<br>
+<span class="chord">                    C#m</span>
+Macumba lá na minha casa
+<span class="chord">        F#7                    B</span>
+Tem galinha preta, azeite de dendê
+<br>
+<span class="chord">B|                     C#m</span>
+I|  A ladainha lá na minha casa
+S|     F#7                                 B
+ |  Tem reza bonitinha e canjiquinha pra comer
+<br>
+<span class="chord">                  C#m</span>
+Se tem alguém aflito
+<span class="chord">       F#7                     B</span>
+Todo mundo chora, todo mundo sofre
+<span class="chord">                               C#m</span>
+Mas logo se reza pra São Benedito
+<span class="chord">           F#7                  B</span>
+Pra Nossa Senhora e pra Santo Onofre
+<span class="chord">                    C#m</span>
+Mas se tem alguém cantando
+<span class="chord">           F#7               B</span>
+Todo mundo canta, todo mundo dança
+<span class="chord">                               C#m</span>
+Todo mundo samba e ninguém se cansa
+<span class="chord">           F#7              B</span>
+Pois minha casa é casa de bamba...
+</span>
+</pre><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div>
+
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>
