@@ -49,13 +49,14 @@ hr {
 
 .lyrics {
   font-family: "Courier New", monospace;
+  font-size: 12pt;
   color: black;
-  width: 100%;
-  max-width: 1000px;
+  /*width: 100%;*/
+  font-size: clamp(5px, 1.7vw, 18px);
+  max-width: 100ch;
   margin: auto;
   white-space: pre;
   overflow-x: auto;
-  font-size: clamp(10px, 1.8vw, 18px);
 }
 
 .chord-item {
