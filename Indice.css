@@ -1,3 +1,7 @@
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth; }
+
 /* Base */
 body {
     margin: 0;
@@ -45,24 +49,77 @@ body {
     padding-bottom: 15px;
 }
 
-/* Alphabet */
-.alphabet {
-    text-align: center;
-    padding: 10px;
+/* Wrapper */
+.floating-wrapper {
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
 }
 
-.alphabet a {
-    display: inline-block;
-    margin: 4px 6px;
-    padding: 6px 10px;
-    border-radius: 6px;
+/* Alphabet panel */
+.floating-alphabet {
+    display: grid;
+    grid-template-columns: repeat(2, 28px);
+    gap: 6px 10px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 12px 10px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+/* Letters */
+.floating-alphabet a {
     text-decoration: none;
-    color: #772F03;
     font-weight: 600;
+    font-size: 14px;
+    color: #772F03;
+    border-radius: 6px;
+    text-align: center;
+    transition: 0.2s ease;
 }
 
-.alphabet a:hover {
+/* Hover */
+.floating-alphabet a:hover {
+    transform: scale(1.2);
+    color: #D25306;
     background: #FFE065;
+}
+
+/* Active letter */
+.floating-alphabet a.active {
+    background: #FFE065;
+    color: #000;
+    border-radius: 6px;
+}
+
+.disabled-letter {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* AZ Button (hidden on desktop) */
+.az-toggle {
+    display: none;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.return-highlight {
+  background: rgba(255, 215, 0, 0.6);
+  border-radius: 6px;
+  padding: 2px 6px;
+  transition: background 1.5s ease;
 }
 
 /* Search wrapper */
@@ -152,6 +209,7 @@ body {
 
 .back-top a:hover {
     text-decoration: underline;
+    color: #D25306;
 }
 
 /* Mobile tweaks */
@@ -166,5 +224,25 @@ body {
 
     .song {
         font-size: 15px;
+    }
+
+    .floating-alphabet {
+        display: none;
+        margin-top: 8px;
+        grid-template-columns: repeat(2, 22px);
+        padding: 10px 8px;
+        gap: 4px 6px;
+    }
+
+    .floating-alphabet.show {
+        display: grid;
+    }
+
+    .floating-alphabet a {
+        font-size: 12px;
+    }
+
+    .az-toggle {
+        display: block;
     }
 }
