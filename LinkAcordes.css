@@ -244,7 +244,7 @@ pre { white-space: pre; }
    MOBILE ADJUSTMENTS
 ================================ */
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 
   #chord-preview {
     max-width: 90%;
