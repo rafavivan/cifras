@@ -49,10 +49,11 @@ hr {
 
 .lyrics {
   font-family: "Courier New", monospace;
-  font-size: 12pt;
+  /*font-size: 12pt;*/
   color: black;
   /*width: 100%;*/
-  font-size: clamp(5px, 1.7vw, 18px);
+  font-size: clamp(10px, 1.7vw, 18px);
+  line-height: 1.25;
   max-width: 100ch;
   margin: auto;
   white-space: pre;
@@ -277,4 +278,9 @@ pre { white-space: pre; }
     box-shadow: none;
     transform: translateY(-50%);
   }
+}
+
+@media (orientation: landscape) {
+  body { width: 98%; }
+  .lyrics { max-width: 140ch; }
 }
