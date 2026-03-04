@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Leci Brandão</title>
+</head>
+
+<body>
+
+<section class="song"
+         id="isso-e-fundo-de-quintal"
+         data-artist="Leci Brandão"
+         data-title="Isso É Fundo De Quintal">
+
+<h2>Leci Brandão – <i>Isso É Fundo De Quintal</i></h2>
+<div class="tom">Tom: <span class="chord">C</span></div>
+<pre><span class="lyrics">
+<br>
+ <b>|</b>  <span class="chord">C   C7      F      Fm</span>
+<b>R|</b>    O que é isso meu amor
+<b>E|</b>  <span class="chord">           Em</span>
+<b>F|</b>  Venha me dizer
+<b>R|</b>  <span class="chord">             A7         Dm</span>
+<b>Ã|</b>  Isto é Fundo de Quintal
+<b>O|</b>  <span class="chord">     G7        C   C7</span>
+ <b>|</b>  É pagode pra valer
+<br>
+<b>REFRÃO</b>
+<br>
+             <span class="chord">C                    Dm</span>
+E lá vem o Sereno trazendo um recado do Ubirany
+              <span class="chord">C             A7                     Dm</span>
+Vem cantando pra gente Bira Presidente vai chegar aqui
+                <span class="chord">E7                                    Am</span>
+Com uma cara de anjo tocando seu banjo o Arlindinho Cruz
+              <span class="chord">Dm                                   G7</span>
+E Dona Ivone Lara esta joia tão rara tão cheia de luz
+                <span class="chord">C               Dm                 C</span>
+E lá vem o Sombrinha fazendo harmonia com seu cavaquinho
+<span class="chord">                C7                                    G7</span>
+Vai versar um partido com um cara chamado Zeca Pagodinho
+<br>
+<b>REFRÃO</b>
+<br>
+                 <span class="chord">C                 Dm            C</span>
+No Cacique de Ramos vai chegar o Cléber com seu violão
+<span class="chord">Dm               C        A7                  Dm</span>
+Tia Doca Bonita cantando gostoso e batendo na mão
+          <span class="chord">E7                                   Am</span>
+Olha a rapaziada fazendo o rateio comprando a bebida
+              <span class="chord">Dm                                   G7</span>
+Deixa para Vicentina esta negra divina fazer a comida
+<span class="chord">                C</span>
+É tantan é repique
+                <span class="chord">Dm             C</span>
+É pandeiro e cavaco pra ficar legal
+<span class="chord">             E7                                     F</span>
+Todo mundo cantando, sambando e tocando no maior astral
+</span>
+</pre><br><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div><br>
+
+<hr>
+</section>
+
+
+<section class="song"
+         id="valeu-demais"
+         data-artist="Leci Brandão"
+         data-title="Valeu Demais">
+
+<h2>Leci Brandão – <i>Valeu Demais</i></h2><div class="tom">Tom: <span class="chord">A</span></div><pre><span class="lyrics">
+<br>
+<span class="chord">A  Dm    G7    A      Dm     G7</span>
+Le re re rê... re... rere... rê
+<br>
+<span class="chord">A</span>
+Tudo que a gente passou
+<span class="chord">Dm                  G7</span>
+Tudo que a gente criou
+<span class="chord">     A</span>
+Foi maravilhoso
+         <span class="chord">Dm        E7</span>
+Inesquecível... demais
+<br>
+<span class="chord">A</span>
+Tudo que a gente brigou
+<span class="chord">Dm                   G7</span>
+Todas que a ente dançou
+<span class="chord">     A</span>
+Foi maravilhoso
+         <span class="chord">Dm        E7</span>
+Inesquecível... demais
+<br>
+ <b>|</b>  <span class="chord">Am       E7            Am</span>
+ <b>|</b>  Mas... você não está aqui
+<b>B|</b>  <span class="chord">                                Dm</span>
+<b>I|</b>  (Mas...) por que que isso aconteceu
+<b>S|</b>   <span class="chord">            G7           C</span>
+ <b>|</b>  (Mas...) eu quero dizer agora
+ <b>|</b>   <span class="chord">   C7        F           E7</span>
+ <b>|</b>  Sem onda, sem hora... porque...
+<br>
+   <span class="chord">A      Dm    G7</span>
+Valeu, valeu demais
+   <span class="chord">A      Dm    E7</span>
+Valeu, valeu demais
+</span>
+</pre><br><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div><br>
+
+<hr>
+</section>
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

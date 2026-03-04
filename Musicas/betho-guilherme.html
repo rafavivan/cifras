@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras – Betho Guilherme</title>
+</head>
+
+<body>
+
+<section class="song"
+         id="agenda"
+         data-artist="Betho Guilherme"
+         data-title="Agenda">
+
+<h2>Betho Guilherme – <i>Agenda</i></h2>
+<div class="tom">Tom: <span class="chord">A</span></div>
+<pre><span class="lyrics">
+<br>
+ <span class="chord">A        C#m  Em</span>
+Marque um dia
+         <span class="chord">F#7       Bm  F#7</span>
+Em sua agenda pra mim
+      <span class="chord">Bm  Bm7+      Bm7   Dm</span>
+Já estive      bem triste
+<span class="chord">             E7       A  E7</span>
+Mas não tão triste assim
+<br>
+    <span class="chord">A           C#m</span>
+Me liga, me instiga
+<span class="chord">Em         F#7   Bm  Em ^ A7 ^</span>
+Me convida pra sair
+ <span class="chord">^  D   Dm     C#m  G7   F#7</span>
+Prometo    que de...ei...xo
+<span class="chord">               B7</span>
+Ah, eu dou um jeito (eu dou um jeito)
+<span class="chord">Dm      E7              Em           A7</span>
+   De sair pra te encontrar sem ela ver
+<br>
+     <span class="chord">D   Dm                  C#m   G7  F#7</span>
+E a gana    de deitar na sua cama  ah  ah
+<span class="chord">                 B7</span>
+E acabar de vez com o drama
+          <span class="chord">Bm  Bm ^ Cm ^ C#m ^ Dm</span>
+Pois quem ama
+<span class="chord">     E7        A</span>
+Não sabe suportar
+<span class="chord">           E7</span>
+Marque um dia
+</span>
+</pre><br><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div><br>
+
+<hr>
+</section>
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>
