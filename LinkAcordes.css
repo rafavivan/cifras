@@ -6,6 +6,7 @@ body {
   width: 80%;
   /*max-width: 750px;*/
   margin: auto;
+  overflow-x:auto;
 }
 
 h2 {
@@ -24,6 +25,7 @@ hr {
   border: none; border-top: 1px solid #e0c4a8;
   padding: 8px 0;
 }
+
 .back-top {
   font-family: Arial;
   text-align: center;
@@ -42,6 +44,8 @@ hr {
 .lyrics {
   font-family: 'Courier New';
   color: black;
+  width: 1000px;
+  margin: auto;
 }
 
 .chord-item {
@@ -50,9 +54,9 @@ hr {
   color: #D25306;
 }
 
-pre { white-space: pre-wrap; margin: 0; }
+pre { white-space: pre; }
 
-.chord-space { white-space: pre-wrap; }
+.chord-space { white-space: pre; }
 
 #chord-preview {
   position: absolute;
@@ -227,6 +231,12 @@ pre { white-space: pre-wrap; margin: 0; }
 ================================ */
 
 @media (max-width: 500px) {
+
+  .lyrics{
+    transform: scale(calc(100vw / 1100));
+    transform-origin: top center;
+  }
+
   #chord-preview {
     max-width: 90%;
   }
