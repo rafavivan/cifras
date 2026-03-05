@@ -239,12 +239,57 @@ pre { white-space: pre; }
   transform: scale(0.96);
 }
 
+/* ===============================
+   Repeat Arrow
+================================ */
+
+.repeat{
+  position: relative;
+}
+
+/* vertical line */
+.repeat::before{
+  content: "";
+  position: absolute;
+  left: 0em;
+  top: 0;
+  bottom: -1em;
+  border-left: 1px solid black;
+}
+
+/* top horizontal line */
+.repeat::after{
+  content: "";
+  position: absolute;
+  left: 0em;
+  top: 0;
+  width: 2em;
+  border-top: 1px solid black;
+}
+
+/* arrow */
+.repeat .arrow{
+  position:absolute;
+  left:1.5em;
+  top:-0.5em;
+  font-size:1em;
+}
+
+/* bottom horizontal line */
+.repeat .bottom{
+  position:absolute;
+  left:0;
+  bottom:-1em;
+  width:3em;
+  border-top:1px solid black;
+}
+
 
 /* ===============================
    MOBILE ADJUSTMENTS
 ================================ */
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 
   #chord-preview {
     max-width: 90%;

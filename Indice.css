@@ -58,7 +58,7 @@ body {
     z-index: 999;
 }
 
-/* Alphabet panel */
+/* Floating Alphabet Panel */
 .floating-alphabet {
     display: grid;
     grid-template-columns: repeat(2, 28px);
@@ -72,7 +72,7 @@ body {
     transition: 0.3s ease;
 }
 
-/* Letters */
+/* Floating Alphabet Letters */
 .floating-alphabet a {
     text-decoration: none;
     font-weight: 600;
@@ -211,6 +211,66 @@ body {
     text-decoration: underline;
     color: #D25306;
 }
+
+/* ====== Topo dentro do Floting ====== */
+.topo-link {
+    grid-column: span 2;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 6px;
+    text-decoration: none;
+    color: #444;
+}
+
+.topo-link:hover {
+    color: #000;
+}
+
+/* ====== IMAGENS LETRAS ====== */
+.letra-az td{
+  position:relative;
+}
+
+.letra-az td::before{
+  content:"";
+  position:absolute;
+  left:-80px;
+  top:3px;
+  width:clamp(40px,6vw,80px);
+  height:clamp(40px,6vw,80px);
+  background-size:contain;
+  background-repeat:no-repeat;
+  opacity: 0.9;;
+  pointer-events:none;
+}
+
+td:has(#letra_A)::before{ background-image:url("Acordes/Letra_A.png"); }
+td:has(#letra_B)::before{ background-image:url("Acordes/Letra_B.png"); }
+td:has(#letra_C)::before{ background-image:url("Acordes/Letra_C.png"); }
+td:has(#letra_C)::before{ background-image:url("Acordes/Letra_C.png"); }
+td:has(#letra_D)::before{ background-image:url("Acordes/Letra_D.png"); }
+td:has(#letra_E)::before{ background-image:url("Acordes/Letra_E.png"); }
+td:has(#letra_F)::before{ background-image:url("Acordes/Letra_F.png"); }
+td:has(#letra_G)::before{ background-image:url("Acordes/Letra_G.png"); }
+td:has(#letra_H)::before{ background-image:url("Acordes/Letra_H.png"); }
+td:has(#letra_I)::before{ background-image:url("Acordes/Letra_I.png"); }
+td:has(#letra_J)::before{ background-image:url("Acordes/Letra_J.png"); }
+td:has(#letra_K)::before{ background-image:url("Acordes/Letra_K.png"); }
+td:has(#letra_L)::before{ background-image:url("Acordes/Letra_L.png"); }
+td:has(#letra_M)::before{ background-image:url("Acordes/Letra_M.png"); }
+td:has(#letra_N)::before{ background-image:url("Acordes/Letra_N.png"); }
+td:has(#letra_O)::before{ background-image:url("Acordes/Letra_O.png"); }
+td:has(#letra_P)::before{ background-image:url("Acordes/Letra_P.png"); }
+td:has(#letra_Q)::before{ background-image:url("Acordes/Letra_Q.png"); }
+td:has(#letra_R)::before{ background-image:url("Acordes/Letra_R.png"); }
+td:has(#letra_S)::before{ background-image:url("Acordes/Letra_S.png"); }
+td:has(#letra_T)::before{ background-image:url("Acordes/Letra_T.png"); }
+td:has(#letra_U)::before{ background-image:url("Acordes/Letra_U.png"); }
+td:has(#letra_V)::before{ background-image:url("Acordes/Letra_V.png"); }
+td:has(#letra_W)::before{ background-image:url("Acordes/Letra_W.png"); }
+td:has(#letra_X)::before{ background-image:url("Acordes/Letra_X.png"); }
+td:has(#letra_Y)::before{ background-image:url("Acordes/Letra_Y.png"); }
+td:has(#letra_Z)::before{ background-image:url("Acordes/Letra_Z.png"); }
 
 /* Mobile tweaks */
 @media (max-width: 500px) {
