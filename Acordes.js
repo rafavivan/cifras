@@ -131,6 +131,10 @@ window.chordIndex = {
   "Abm7+": [
     "Abm7+ (1).png"
   ],
+  "Abº": [
+    "Abdim (1).png",
+    "Abdim (2).png",
+  ],
   "Aº": [
     "Adim (1).png",
     "Adim (2).png"
@@ -861,6 +865,9 @@ window.chordIndex = {
   ],
   "G": [
     "G (1).png"
+  ],
+  "G#": [
+    "G# (1).png"
   ],
   "G#4": [
     "G#4 (1).png"
