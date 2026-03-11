@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras - Dona Ivone Lara</title>
+</head>
+
+
+<body>
+
+
+        <section class="song"
+         id="sem-cavaco-nao"
+         data-artist="Dona Ivone Lara"
+         data-title="Sem Cavaco Não">
+
+
+<h2>Dona Ivone Lara – <i>Sem Cavaco Não</i></h2>
+<div class="tom">Tom.......: <span class="chord">G</span></div>
+<div class="intro">Introdução: <span class="chord">G  E7  C#m5-/7  D7  G  D7  G  E7  Am  D7  G  %</span></div>
+<pre>
+<span class="lyrics">
+<br>
+<span class="chord">Bm5-/7  E7  A7  D#7  D7  G  E7  Am  D7</span>
+
+  <span class="chord">G              E7          A7</span>
+Samba sem cavaquinho, não é samba
+   <span class="chord">Am          D7          G</span>
+Tem que ter pandeiro e um violão
+  <span class="chord">Bm5-/7         E7                   Am</span>
+Geme a cuíca baixinho, surdo em marcação
+                         <span class="chord">D7</span>
+Sob os acordes de um violão
+                           <span class="chord">G  E7  Am  D7</span>
+A gente vibra de tanta emoção
+
+  <span class="chord">G              E7           A7</span>
+Samba sem cavaquinho, não é samba
+   <span class="chord">Am          D7             G</span>
+Tem que ter pandeiro e um violão
+  <span class="chord">Bm5-/7       E7                 Am</span>
+Geme cuíca baixinho, surdo em marcação
+                       <span class="chord">D7</span>
+Sob os acordes de um violão
+                           <span class="chord">G</span>
+A gente vibra de tanta emoção
+
+   <span class="chord">Bbº             Am</span>
+Juro por Nossa Senhora
+  <span class="chord">D7                 G</span>
+Que estou falando a verdade
+ <span class="chord">E7         Dm</span>
+Se o samba me falar
+ <span class="chord">G7                 C</span>
+Me faltará a felicidade
+                   <span class="chord">C#º</span>
+No samba me sinto bem
+  <span class="chord">G                     E7</span>
+No samba esqueço a nostalgia
+ <span class="chord">A7</span>
+No samba me sinto feliz
+  <span class="chord">D7                    G  E7  Am  D7</span>
+Por isso sambo noite e dia
+</span>
+</pre><br><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div><br>
+<hr>
+
+</section>
+
+
+        <section class="song"
+         id="sorriso-negro"
+         data-artist="Dona Ivone Lara"
+         data-title="Sorriso Negro">
+
+
+<h2>Dona Ivone Lara – <i>Sorriso Negro</i></h2>
+<div class="tom">Tom.......: <span class="chord">G</span></div>
+<div class="intro">Introdução: <span class="chord">F  F  Gm7  C7  F  C7</span></div>
+<pre>
+<span class="lyrics">
+<br>
+    <b>|</b><span class="chord">                       F    Bb7     F</span>
+R   <b>|</b>  Um sorriso negro, um abraço negro
+E  <b>B|</b><span class="chord">   Am5-/7    D7  Gm7</span>
+F  <b>I|</b>  Traz... felicidade
+R  <b>S|</b><span class="chord">   D7         Gm7      D7         Gm7</span>
+Ã   <b>|</b>  Negro sem emprego, fica sem sossego
+O   <b>|</b>    C7                   F    2ª vez: C7
+    <b>|</b>  Negro é a raiz da liberdade
+
+   <span class="chord">D7                      Gm7</span>
+Negro é uma cor de respeito
+  <span class="chord">C7          F</span>
+Negro é inspiração
+                    <span class="chord">Cm</span>
+Negro é silêncio, é luto
+       <span class="chord">F7        Bb7+</span>
+Negro é...a solução
+ <span class="chord">Bb6                 Bbm6</span>
+Negro que já foi escravo
+   <span class="chord">C7                F</span>
+Negro é a voz da verdade
+  <span class="chord">D7             G7/13   G5+/7</span>
+Negro é destino é amor
+  <span class="chord">C7              F                   C7</span>
+Negro também é saudade... um sorriso negro
+</span>
+</pre><br><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div><br>
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

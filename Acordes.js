@@ -305,7 +305,7 @@ window.chordIndex = {
   "Bm7+": [
     "Bm7+ (1).png"
   ],
-  "Bm79": [
+  "Bm7/9": [
     "Bm79 (1).png",
     "Bm79 (2).png"
   ],

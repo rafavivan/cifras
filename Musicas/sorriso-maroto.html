@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras - Sorriso Maroto</title>
+</head>
+
+
+<body>
+
+
+        <section class="song"
+         id="disfarca"
+         data-artist="Sorriso Maroto"
+         data-title="Disfarça">
+
+
+<h2>Sorriso Maroto – <i>Disfarça</i></h2>
+<div class="tom">Tom......: <span class="chord">Ab</span></div>
+<pre>
+<span class="lyrics">
+<br>
+Intodução: Ab
+
+ <span class="chord">Ab7+             Fm7</span>
+Deixa que eu me  viro, deixa
+       <span class="chord">Bbm    Bbm/G#          Eb7/9</span>
+Se e dessa maneira que você prefere
+        <span class="chord">Ab7+             Fm7</span>
+Diz que me esquece e que não merece
+       <span class="chord">Bbm  Bbm/G#  Gm5-/7       C7/9-</span>
+Já fiz uma prece... pra você voltar
+<span class="chord">Fm       Fm7+        Fm7</span>
+Toda vez que eu olho pra você
+        <span class="chord">Fm6            C#7+</span>
+Sinto o meu corpo estremecer
+                  <span class="chord">Gm5-/7</span>
+Teu olhar perdido em meu olhar
+    <span class="chord">C7       Fm7                                Ebm7</span>
+E você tenta me convencer pra que eu viva sem você
+       <span class="chord">Ab7</span>
+Só que mal
+
+<span class="chord">C#7+          Eb7/9          Ab7+</span>
+Disfarça você mal disfarça aquele jeito de me olhar
+  <span class="chord">Ebm7        Ab7</span>
+Quando quer ficar
+   <span class="chord">C#7+             Eb7/9          Ab7+</span>
+Disfarça você mal disfarça não sei pra que viver assim
+  <span class="chord">Ebm7          Ab7</span>
+Sofrendo e tão ruim
+   C#7+            Eb7/9  (1ª vez)
+Disfarça toda essa magoa...
+
+
+   C#7+            Eb7/9            Ab7+    Ebm7   Ab7  (2a VEZ)
+Disfarça toda essa magoa, volta pra mim, volta pra mim
+
+
+   <span class="chord">C#7+            Eb7/9            Ab7+</span>
+Disfarça toda essa magoa, volta pra mim
+
+</span>
+</pre>
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras - Bala, Bombom E Chocolate</title>
+</head>
+
+<body>
+        <section class="song"
+         id="caixa-postal"
+         data-artist="Bala, Bombom E Chocolate"
+         data-title="Caixa-Postal">
+
+<h2>Bala, Bombom E Chocolate – <i>Caixa-Postal</i></h2>
+<div class="tom">Tom.......: <span class="chord">Eb</span></div>
+<div class="intro">Introdução: <span class="chord">Eb  Gm  Fm  Gm  Cm  Fm  Gm  Ab  Gm  Fm  Gm  Cm  Bb7</span></div>
+<pre>
+<span class="lyrics">
+<br>
+      <span class="chord">Eb                    Fm      G7</span>
+Outro dia caminhando pelas ruas
+       <span class="chord">Cm                       Gm</span>
+Eu lembrei de como agente era feliz
+       <span class="chord">Ab                    Gm   Cm</span>
+Quase tudo era motivo pra sorrir
+     <span class="chord">Fm          Fm7+          G7/4</span>
+Você foi e eu não sei o que eu fiz
+
+<b>R|</b><span class="chord">        G7        Fm      Bb7           Eb</span>
+<b>E|</b>  Perguntam por você, não sei o que dizer
+<b>F|</b><span class="chord">      C7          Fm       Bb7          Eb</span>
+<b>R|</b>  Sem ter o que falar, eu tento me explicar
+<b>Ã|</b><span class="chord">       Gm ^ Gbm ^ Fm    Gm     Ab</span>
+<b>O|</b>  E eu já   fui   lá, bati, liguei
+ <b>|</b><span class="chord">           Gm               Fm</span>
+<b>B|</b>  Deixei recado na caixa postal
+<b>I|</b><span class="chord">      Gm            Cm  ( Ab  Bb7 )</span>
+<b>S|</b>  Não sei, não mais vi
+
+  <span class="chord">Eb                            Fm     G7</span>
+Como pode alguém fazer tanto sentido
+   <span class="chord">Cm                       Gm</span>
+E sair por uma porta sem voltar
+   <span class="chord">Ab                         Gm    Cm</span>
+E sumir da minha vida de uma vez
+      <span class="chord">Fm           Fm7+           G7/4</span>
+Sem deixar nenhuma pista de onde está
+
+<b>REFRÃO</b>
+
+       <span class="chord">( Fm  Bb7  Eb  Gm  Fm  Bb7  Eb )  Bb7</span>
+Undárundarará
+      <span class="chord">Eb</span>
+Como pode
+
+<b>REFRÃO</b>
+</span>
+</pre><br><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div><br>
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../LinkAcordes.css">
+    <title>RV Cifras - Desejos</title>
+</head>
+
+
+<body>
+
+
+        <section class="song"
+         id="mel-na-minha-boca"
+         data-artist="Desejos"
+         data-title="Mel Na Minha Boca">
+
+
+<h2>Desejos – <i>Mel Na Minha Boca</i></h2>
+<div class="tom">Tom.......: <span class="chord">F</span></div>
+<div class="intro">Introdução: <span class="chord">F7+  Am7  Bb  C7  F7+  Am7  Bb  C7  F7+</span></div>
+<pre>
+<span class="lyrics">
+<br>
+                                <span class="chord">Am7</span>
+Olha a gente tem que conversar, eu não consigo mais ficar assim
+      <span class="chord">Bb       Am         Gm              F               C7    Bb   C7</span>
+Esse jogo de emoção e sedução vai acabar fazendo a gente enlouquecer
+<span class="chord">F7+                           Am7</span>
+Olha a gente tem que decidir, ou vai em frente ou para de uma vez
+      <span class="chord">Bb      Am            Gm                 F           C7     Bb  C7</span>
+Você fica insinuando que me quer depois me diz que não tem nada a ver
+  <span class="chord">F7+                  Am                     Bb7+        C  Bb</span>
+<span class="chord">Esse jeito de me olhar desperta fantasias e me faz sonhar</span>
+   <span class="chord">Dm7                Am                                     Bb</span>
+Gosta de me provocar, mas tira o corpo fora e me deixa na saudade
+          <span class="chord">C7</span>
+Sem você não sei o que fazer
+
+<span class="chord">F7+                 Am7               Bb  C  Bb</span>
+E bota mel na minha boca e me diz que não
+<span class="chord">Gm7                  C7           F7+   Bb  C7</span>
+E gosta de atiçar o fogo do meu coração
+<span class="chord">F7+                 Am7               Bb  C  Bb</span>
+E fica só jogando charme, mas na hora H
+<span class="chord">Gm7                   C7                   F/A</span>
+Sempre arranja uma desculpa e fala que não dá
+   <span class="chord">Am7      Bb</span>
+Não dá, não dá
+                       <span class="chord">C7                     F</span>
+Sempre arranja uma desculpa e fala que não dá
+
+Solo : 26 26 25 25 23 23 33 32
+       17 17 15 15 13 13 23 21
+</span>
+</pre><br><div class="back-top"><a href="../index.html">← Voltar ao Índice</a></div><br>
+<hr>
+
+</section>
+
+
+<div id="chord-preview" class="hidden">
+  <div class="image-wrapper">
+    <button class="nav prev" type="button">←</button>
+    <img id="chord-image" alt="Diagrama" />
+    <button class="nav next" type="button">→</button>
+  </div>
+  <button class="close" type="button">✕</button>
+  <div class="dots"><button class="dot" type="button"></button></div>
+</div>
+
+<script src="../Acordes.js"></script>
+<script src="../AcordeScript.js"></script>
+
+<script>
+const anchors = Array.from(document.querySelectorAll("section.song")).map(section => section.id);
+
+let currentIndex = 0;
+
+/* Detect visible song on scroll     */
+function detectCurrentSong() {
+    let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+    for (let i = anchors.length - 1; i >= 0; i--) {
+        const el = document.getElementById(anchors[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+        }
+    }
+}
+
+window.addEventListener("scroll", detectCurrentSong);
+
+/* Hash change handling              */
+function updateIndexFromHash() {
+    const hash = window.location.hash.substring(1);
+
+    if (!hash) return;
+
+    const index = anchors.indexOf(hash);
+    if (index !== -1) {
+        currentIndex = index;
+    }
+}
+
+window.addEventListener("hashchange", updateIndexFromHash);
+window.addEventListener("load", () => {
+    updateIndexFromHash();
+    detectCurrentSong();
+});
+
+/* Navigation functions              */
+function goPrev() {
+    detectCurrentSong();
+    if (currentIndex > 0) {
+        window.location.hash = anchors[currentIndex - 1];
+    }
+}
+
+function goNext() {
+    detectCurrentSong();
+    if (currentIndex < anchors.length - 1) {
+        window.location.hash = anchors[currentIndex + 1];
+    }
+}
+
+/* Swipe support*/
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        goNext();
+    }
+    if (touchEndX > touchStartX + 50) {
+        goPrev();
+    }
+}</script>
+
+
+<div id="floatingPrev">
+    <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
+</div>
+
+<div id="floatingNext">
+    <a href="javascript:void(0)" class="navButton" onclick="goNext()">→</a>
+</div>
+
+</body>
+</html>
