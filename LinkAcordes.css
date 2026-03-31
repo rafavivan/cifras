@@ -239,6 +239,25 @@ pre { white-space: pre; }
   transform: scale(0.96);
 }
 
+/* ZOOM + and - */
+#zoomControls {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+}
+
+#zoomControls button {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
 /* ===============================
    Repeat Arrow
 ================================ */

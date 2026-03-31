@@ -352,8 +352,49 @@ function handleSwipe() {
     if (touchEndX > touchStartX + 50) {
         goPrev();
     }
-}</script>
+}
 
+let currentZoom = 18;
+const minZoom = 10;
+const maxZoom = 40;
+
+function applyZoom() {
+    document.querySelectorAll(".lyrics").forEach(el => {
+        el.style.fontSize = currentZoom + "px";
+    });
+
+    localStorage.setItem("lyricsZoom", currentZoom);
+}
+
+function zoomIn() {
+    if (currentZoom < maxZoom) {
+        currentZoom += 2;
+        applyZoom();
+    }
+}
+
+function zoomOut() {
+    if (currentZoom > minZoom) {
+        currentZoom -= 2;
+        applyZoom();
+    }
+}
+
+/* Load saved zoom */
+window.addEventListener("load", () => {
+    const saved = localStorage.getItem("lyricsZoom");
+    if (saved) {
+        currentZoom = parseInt(saved);
+        applyZoom();
+    }
+});
+
+</script>
+
+<div id="zoomControls">
+    <button onclick="zoomOut()">−</button>
+    <button onclick="zoomIn()">+</button>
+</div>
 
 <div id="floatingPrev">
     <a href="javascript:void(0)" class="navButton" onclick="goPrev()">←</a>
