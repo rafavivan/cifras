@@ -235,3 +235,126 @@ preview.addEventListener("touchend", e => {
 
   dx > 0 ? showPrev() : showNext();
 });
+
+/* =========================
+   CONTROL PANEL COMPONENT
+========================= */
+(function () {
+    function initControlPanel() {
+      /* Prevent duplicate */
+      if (document.getElementById("controlPanel")) return;
+
+      /* CREATE PANEL */
+      const panel = document.createElement("div");
+      panel.id = "controlPanel";
+      panel.innerHTML = `
+        <button id="zoomOut">−</button>
+        <button id="zoomIn">+</button>
+        <div class="divider"></div>
+        <button id="goPrev">←</button>
+        <button id="goNext">→</button>
+      `;
+      document.body.appendChild(panel);
+
+      /* =========================
+          ZOOM
+      ========================= */
+      let currentZoom = 18;
+      const minZoom = 10;
+      const maxZoom = 40;
+
+      function applyZoom() {
+        document.querySelectorAll(".lyrics").forEach(el => {
+            el.style.fontSize = currentZoom + "px";
+        });
+        localStorage.setItem("lyricsZoom", currentZoom);
+      }
+
+      panel.querySelector("#zoomIn").onclick = () => {
+        if (currentZoom < maxZoom) {
+          currentZoom += 2;
+          applyZoom();
+        }
+      };
+
+      panel.querySelector("#zoomOut").onclick = () => {
+        if (currentZoom > minZoom) {
+          currentZoom -= 2;
+          applyZoom();
+        }
+      };
+
+      /* =========================
+          NAVIGATION
+      ========================= */
+      const sections = Array.from(document.querySelectorAll("section.song"));
+      const anchors = sections.map(s => s.id);
+      let currentIndex = 0;
+
+      function detectCurrentSong() {
+        let scrollPosition = window.scrollY + window.innerHeight / 3;
+
+        for (let i = anchors.length - 1; i >= 0; i--) {
+          const el = document.getElementById(anchors[i]);
+          if (el && el.offsetTop <= scrollPosition) {
+            currentIndex = i;
+            break;
+          }
+        }
+      }
+
+      function goNext() {
+        detectCurrentSong();
+        if (currentIndex < anchors.length - 1) {
+          window.location.hash = anchors[currentIndex + 1];
+        }
+      }
+
+      function goPrev() {
+        detectCurrentSong();
+        if (currentIndex > 0) {
+          window.location.hash = anchors[currentIndex - 1];
+        }
+      }
+
+      panel.querySelector("#goNext").onclick = goNext;
+      panel.querySelector("#goPrev").onclick = goPrev;
+
+      window.addEventListener("scroll", detectCurrentSong);
+
+      /* =========================
+          AUTO HIDE
+      ========================= */
+      let hideTimer;
+      const HIDE_DELAY = 2000;
+
+      function showPanel() {
+        panel.classList.remove("hidden");
+
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => {
+          panel.classList.add("hidden");
+        }, HIDE_DELAY);
+      }
+
+      ["scroll", "touchstart", "click"].forEach(event => {
+        document.addEventListener(event, showPanel, { passive: true });
+      });
+
+      panel.addEventListener("click", e => {
+        e.stopPropagation();
+        showPanel();
+      });
+
+      showPanel();
+  }
+
+  /* Run after DOM is ready */
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initControlPanel);
+  } else {
+    initControlPanel();
+  }
+
+}
+)();
