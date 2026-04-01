@@ -235,32 +235,3 @@ preview.addEventListener("touchend", e => {
 
   dx > 0 ? showPrev() : showNext();
 });
-
-let hideTimer;
-const panel = document.getElementById("controlPanel");
-const HIDE_DELAY = 2000; // 2 seconds
-
-function showPanel() {
-    panel.classList.remove("hidden");
-
-    clearTimeout(hideTimer);
-    hideTimer = setTimeout(() => {
-        panel.classList.add("hidden");
-    }, HIDE_DELAY);
-}
-
-/* Show on interactions */
-["scroll", "touchstart", "click"].forEach(event => {
-    document.addEventListener(event, showPanel, { passive: true });
-});
-
-/* Prevent clicks on panel from hiding it immediately */
-panel.addEventListener("click", e => {
-    e.stopPropagation();
-    showPanel();
-});
-
-/* Initial state */
-window.addEventListener("load", () => {
-    showPanel();
-});
