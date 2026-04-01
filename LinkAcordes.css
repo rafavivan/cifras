@@ -182,36 +182,49 @@ pre { white-space: pre; }
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 10px;
   gap: 10px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   z-index: 9999;
   transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+/* Rows (2 buttons side by side) */
+#controlPanel .row {
+  display: flex;
+  gap: 8px;
 }
 
 /* Buttons */
 #controlPanel button {
   appearance: none;
   -webkit-appearance: none;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   color: #fff;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: none;
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 /* Hover */
 #controlPanel button:hover {
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.7);
   transform: scale(1.08);
 }
 
@@ -230,13 +243,13 @@ pre { white-space: pre; }
   opacity: 0;
   pointer-events: none;
   transform: translateY(-50%) scale(0.95);
+  transition: opacity 0.4s ease, transform 0.3s ease;
 }
 
 /* Divider line */
 #controlPanel .divider {
   height: 2px;
-  width: 60%;
-  margin: 5px auto;
+  width: 80%;
   background: rgba(255,255,255,0.3);
   border-radius: 2px;
 }
@@ -350,9 +363,9 @@ pre { white-space: pre; }
   }
 
   #controlPanel button {
-    width: 64px;
-    height: 64px;
-    font-size: 26px;
+    width: 56px;
+    height: 56px;
+    font-size: 22px;
   }
 }
 

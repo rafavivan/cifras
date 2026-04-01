@@ -248,11 +248,15 @@ preview.addEventListener("touchend", e => {
       const panel = document.createElement("div");
       panel.id = "controlPanel";
       panel.innerHTML = `
-        <button id="zoomOut">−</button>
-        <button id="zoomIn">+</button>
+        <div class="row">
+          <button id="zoomOut">−</button>
+          <button id="zoomIn">+</button>
+        </div>
         <div class="divider"></div>
-        <button id="goPrev">←</button>
-        <button id="goNext">→</button>
+        <div class="row">
+          <button id="goPrev">←</button>
+          <button id="goNext">→</button>
+        </div>
       `;
       document.body.appendChild(panel);
 
@@ -326,7 +330,7 @@ preview.addEventListener("touchend", e => {
           AUTO HIDE
       ========================= */
       let hideTimer;
-      const HIDE_DELAY = 2000;
+      const HIDE_DELAY = 3000;
 
       function showPanel() {
         panel.classList.remove("hidden");
