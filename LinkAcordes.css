@@ -175,38 +175,71 @@ pre { white-space: pre; }
   font-size: 18px;
 }
 
-#floatingNav {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  gap: 10px;
-  z-index: 9999;
-}
-
-#floatingNav a {
-  background: #000;
-  color: #fff;
-  padding: 10px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  opacity: 0.85;
-}
-#floatingNav a:hover {
-  opacity: 1;
-}
-
-#floatingPrev,
-#floatingNext {
+#controlPanel {
   position: fixed;
   top: 50%;
+  right: 20px;
   transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   z-index: 9999;
+  transition: opacity 0.4s ease, transform 0.3s ease;
 }
 
-#floatingPrev { left: 20px; }
-#floatingNext { right: 20px; }
+/* Buttons */
+#controlPanel button {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+#controlPanel button:hover {
+  background: rgba(0, 0, 0, 0.65);
+  transform: scale(1.08);
+}
+
+/* Press */
+#controlPanel button:active {
+  transform: scale(0.96);
+}
+
+/* Remove iOS blue highlight */
+#controlPanel button:focus {
+  outline: none;
+}
+
+/* Hidden state */
+#controlPanel.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Divider line */
+#controlPanel .divider {
+  height: 2px;
+  width: 60%;
+  margin: 5px auto;
+  background: rgba(255,255,255,0.3);
+  border-radius: 2px;
+}
 
 .navButton {
   width: 56px;
@@ -239,29 +272,9 @@ pre { white-space: pre; }
   transform: scale(0.96);
 }
 
-/* ZOOM + and - */
-#zoomControls {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 9999;
-}
-
-#zoomControls button {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 20px;
-    padding: 8px 12px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
 /* ===============================
    Repeat Arrow
 ================================ */
-
 .repeat{
   position: relative;
 }
@@ -334,6 +347,12 @@ pre { white-space: pre; }
     width: 60px;
     height: 60px;
     font-size: 24px;
+  }
+
+  #controlPanel button {
+    width: 64px;
+    height: 64px;
+    font-size: 26px;
   }
 }
 
